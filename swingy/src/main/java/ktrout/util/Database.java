@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class Database {
 
-    private static final String DB_URL = "jdbc:sqlite:heroes.db";
+    private static final String DB_URL = "jdbc:sqlite::resource:heroes.db";
     private static Connection connection;
 
     public static void connect() {
