@@ -1,6 +1,6 @@
 import util.Database;
 
-public class MainGame {
+public class Main {
     
     public static void main(String[] args) {
         
