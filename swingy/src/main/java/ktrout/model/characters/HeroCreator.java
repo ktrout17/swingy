@@ -61,4 +61,8 @@ public class HeroCreator {
 	public void setHelm(Helm helm) {
 		helm = this.helm;
 	}
+	
+	public CreateHero getHero() {
+		return new CreateHero(name, atk, def, hp, id, heroClass, lvl, exp, weap, armor, helm);
+	}
 }
