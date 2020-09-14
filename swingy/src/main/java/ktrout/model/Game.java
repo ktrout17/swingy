@@ -1,6 +1,7 @@
 package ktrout.model;
 
 import ktrout.model.characters.CreateHero;
+import ktrout.model.characters.EnemyFactory;
 
 public class Game {
 		
@@ -35,5 +36,18 @@ public class Game {
 	private void generateEnemies() {
 		int rand;
 		int lvl = hero.getLvl();
+		
+		for (int i = 0; i < mapSize; i++) {
+			for (int j = 0; j < mapSize; j++) {
+				rand = ((int)Math.random() * 101);
+				if ((lvl + 1) * 10 >= rand)
+					map[i][j] = true;
+			}
+		}
+	}
+	
+	public Enemy generateEnemy() {
+		int id = ((int)Math.random() * 5);
+		EnemyFactory.newEnemy(name, id)
 	}
 }
