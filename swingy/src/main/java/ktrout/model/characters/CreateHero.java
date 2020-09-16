@@ -37,14 +37,28 @@ public class CreateHero extends Character {
 	
 	public void equipHelm(Helm helm) {
 		if (this.helm != null) {
-			this.hp = this.hp - this.helm.getPoints();
-			if (this.hp + helm.getPoints() <= 0) {
-				this.hp = this.hp + this.helm.getPoints();
+			this.hp = this.hp - this.helm.getHp();
+			if (this.hp + helm.getHp() <= 0) {
+				this.hp = this.hp + this.helm.getHp();
 				return;
 			}
 		}
-		this.hp = this.hp + helm.getPoints();
+		this.hp = this.hp + helm.getHp();
 		helm = this.helm;
+	}
+	
+	public void equipArmor(Armor armor) {
+		if (this.armor != null)
+			this.def = this.def - this.armor.getDef();
+		this.def = this.def + this.armor.getDef();
+		armor = this.armor;
+	}
+	
+	public void equipWeap(Weapon weap) {
+		if (this.weap != null)
+			this.atk = this.atk - this.weap.getAtk();
+		this.atk = this.atk + this.weap.getAtk();
+		weap = this.weap;
 	}
 	
 	// exp formula = level*1000+(level−1)2*450

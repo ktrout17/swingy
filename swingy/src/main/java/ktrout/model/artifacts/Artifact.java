@@ -1,21 +1,33 @@
 package ktrout.model.artifacts;
 
+import javax.validation.constraints.Min;
+
 public abstract class Artifact {
 	
-	private int points;
+	@Min(value = 1)
 	private String name;
+	protected int atk;
+	protected int def;
+	protected int hp;
 	
-	public Artifact(String name, int points) {
-		
-		points = this.points;
+	
+	public Artifact(String name) {
 		name = this.name;
-	}
-	
-	public int getPoints() {
-		return points;
 	}
 	
 	public String getName() {
 		return name;
+	}
+	
+	public int getAtk() {
+		return this.atk;
+	}
+	
+	public int getDef() {
+		return this.def;
+	}
+	
+	public int getHp() {
+		return this.hp;
 	}
 }

@@ -4,6 +4,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import ktrout.model.characters.enemies.Enemies;
+
 public abstract class Character {
 
 	@NotNull
@@ -36,7 +38,7 @@ public abstract class Character {
 
 	public boolean combat(Character enemy) {
 	    while (enemy.getHp() > 0 && this.getHp() > 0) {
-	        this.atk(enemy);
+	        atk(enemy);
 	        enemy.atk(this);
         }
 	    return this.getHp() > 0;
