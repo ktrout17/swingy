@@ -1,6 +1,7 @@
 package ktrout.model;
 
 import ktrout.model.characters.CreateHero;
+import ktrout.model.characters.Enemy;
 import ktrout.model.characters.EnemyFactory;
 
 public class Game {
@@ -48,6 +49,7 @@ public class Game {
 	
 	public Enemy generateEnemy() {
 		int id = ((int)Math.random() * 5);
-		EnemyFactory.newEnemy(name, id)
+		EnemyFactory.newEnemy(id);
+		return new getEnemy();
 	}
 }
