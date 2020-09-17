@@ -38,7 +38,7 @@ public abstract class Character {
 
 	public boolean combat(Character enemy) {
 	    while (enemy.getHp() > 0 && this.getHp() > 0) {
-	        atk(enemy);
+	        this.atk(enemy);
 	        enemy.atk(this);
         }
 	    return this.getHp() > 0;

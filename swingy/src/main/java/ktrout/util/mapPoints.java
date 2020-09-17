@@ -1,11 +1,11 @@
 package ktrout.util;
 
-public class mapPoints {
+public class MapPoints {
 	
 	private int x;
 	private int y;
 	
-	public mapPoints(int x, int y) {
+	public MapPoints(int x, int y) {
 		x = this.x;
 		y = this.y;
 	}

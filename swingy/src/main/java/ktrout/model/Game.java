@@ -15,12 +15,14 @@ import ktrout.model.characters.CreateHero;
 import ktrout.model.characters.Enemy;
 import ktrout.model.characters.EnemyFactory;
 import ktrout.model.characters.enemies.Enemies;
+import ktrout.util.MapPoints;
 
 public class Game {
 		
 	private static Game instance = null;
 	
 	private CreateHero hero;
+	private MapPoints heroCoords;
 	private int mapSize;
 	private boolean[][] map;
 	private static EnemyFactory enemyFactory = new EnemyFactory();
@@ -124,7 +126,7 @@ public class Game {
 		return artifact;
 	}
 	
-	public int fightRes(Character enemy) {
+	public int fightRes(Enemies enemy) {
 		int exp = enemy.getAtk() + enemy.getDef() + enemy.getHp();
 		int rand = (int)Math.random() * 100;
 		
@@ -137,5 +139,38 @@ public class Game {
 			return exp;
 		else 
 			return -1;
+	}
+	
+	private void placeHero() {
+		heroCoords = new MapPoints(mapSize / 2, mapSize / 2);
+		map[heroCoords.getY()][heroCoords.getX()] = false;
+	}
+	
+	public int getMapSize() {
+		return mapSize;
+	}
+	
+	public CreateHero getHero() {
+		return hero;
+	}
+	
+	public void setHero(CreateHero hero) {
+		hero = this.hero;
+	}
+	
+	public MapPoints getHeroCoords() {
+		return heroCoords;
+	}
+	
+	public void setHeroCoords(MapPoints heroCoords) {
+		heroCoords = this.heroCoords;
+	}
+	
+	public boolean[][] getMap() {
+		return map;
+	}
+	
+	public void setMap(boolean[][] map) {
+		map = this.map;
 	}
 }
