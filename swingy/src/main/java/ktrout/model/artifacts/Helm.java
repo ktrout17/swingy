@@ -2,7 +2,7 @@ package ktrout.model.artifacts;
 
 public class Helm extends Artifact {
 
-	public Helm(String name) {
+	public Helm(String name, int val) {
 		super(name);
 		switch(name) {
 		case "MYRMIC HELM":

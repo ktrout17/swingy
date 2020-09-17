@@ -22,7 +22,7 @@ public class CreateHeroController {
 		CreateHero hero;
 		try {
 			hero = HeroFactory.newHero(name, heroClass);
-		} catch (IllegalArgumentException | ValidationException e) {
+		} catch (IllegalArgumentException | HeroValidationException e) {
 			view.showErrorMsg(e.getMessage());
 			view.getUserInput();
 			return;

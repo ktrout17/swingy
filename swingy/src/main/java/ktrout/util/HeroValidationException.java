@@ -1,14 +1,12 @@
 package ktrout.util;
 
-public class ValidationException extends Exception {
-
+public class HeroValidationException extends Exception {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public ValidationException(String message) {
+	public HeroValidationException(String message) {
 		super(message);
 	}
-	
 }

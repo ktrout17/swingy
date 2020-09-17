@@ -2,7 +2,7 @@ package ktrout.model.artifacts;
 
 public class Armor extends Artifact {
 
-	public Armor(String name) {
+	public Armor(String name, int val) {
 		super(name);
 		switch(name) {
 		case "ENCHANTED ANGEL WINGS":

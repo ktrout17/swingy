@@ -2,7 +2,7 @@ package ktrout.model.artifacts;
 
 public class Weapon extends Artifact {
 
-	public Weapon(String name) {
+	public Weapon(String name, int val) {
 		super(name);
 		switch(name) {
 		case "BRONZE DAGGER":
