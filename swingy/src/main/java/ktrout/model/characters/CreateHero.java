@@ -35,6 +35,14 @@ public class CreateHero extends Character {
 		heroClass = this.heroClass;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		id = this.id;
+	}
+	
 	public void equipHelm(Helm helm) {
 		if (this.helm != null) {
 			this.hp = this.hp - this.helm.getHp();

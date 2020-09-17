@@ -1,9 +1,12 @@
 package ktrout.controller;
 
+import javax.validation.ValidationException;
+
 import ktrout.model.Game;
 import ktrout.model.characters.CreateHero;
 import ktrout.model.characters.HeroFactory;
 import ktrout.view.CreateHeroView;
+import util.Database;
 
 public class CreateHeroController {
 	
@@ -19,6 +22,15 @@ public class CreateHeroController {
 		CreateHero hero;
 		try {
 			hero = HeroFactory.newHero(name, heroClass);
+		} catch (IllegalArgumentException | ValidationException e) {
+			view.showErrorMsg(e.getMessage());
+			view.getUserInput();
+			return;
 		}
+		
+		int id = Database.insert(hero.getName(), hero.getHeroClass(), hero.getLvl(), hero.getExp(), hero.getAtk(), hero.getDef(), hero.getHp());
+		hero.setId(id);
+		game.startGame(hero);
+		view.openGame();
 	}
 }
