@@ -23,6 +23,15 @@ public class GameController {
 		prevPos = new MapPoints(0, 0);
 	}
 	
+	public void onStart() {
+		view.update(game);
+	}
+	
+	public void onPrintMap() {
+		view.printMap(game.getMap(), game.getHeroCoords());
+		view.update(game);
+	}
+	
 	public void onMove(String direction) {
 		int x = game.getHeroCoords().getX();
 		int y = game.getHeroCoords().getY();
