@@ -2,6 +2,7 @@ package ktrout.view;
 
 import java.util.Scanner;
 
+import ktrout.Main;
 import ktrout.controller.GameController;
 import ktrout.model.Game;
 import ktrout.util.MapPoints;
@@ -119,5 +120,31 @@ public class GameConsoleView implements GameView {
 	@Override
 	public boolean replaceArtifact(String replaceMsg) {
 		Scanner scanner = Main.getScanner();
+		
+		System.out.println();
+		System.out.println("Would you like to replace your current " + replaceMsg + "?");
+		System.out.println("DROP - drop current artifact");
+		System.out.println("REPLACE - replace current artifact");
+		System.out.println("Available commands:");
+		System.out.println("DROP, REPLACE");
+		while (scanner.hasNext()) {
+			String input = scanner.nextLine();
+			
+			if ("drop".equalsIgnoreCase(input)) {
+				return false;
+			} else if ("replace".equalsIgnoreCase(input)) {
+				return true;
+			} else {
+				System.out.println("Unknown command.");
+				System.out.println("Please choose one of the vailable commands: ");
+				System.out.println("DROP, REPLACE");
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public void switchView() {
+		new GameGUIView().start;
 	}
 }

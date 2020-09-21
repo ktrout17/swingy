@@ -1,10 +1,11 @@
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import util.Database;
+import ktrout.util.Database;
 
 public class Main {
     
@@ -30,6 +31,16 @@ public class Main {
     		frameListener();
     	}
     	return frame;
+    }
+    
+    public static void showFrame() {
+    	if (frame != null)
+    		frame.setVisible(true);
+    }
+    
+    public static void hideFrame() {
+    	if (frame != null)
+    		frame.setVisible(false);
     }
     
     public static void closeConnections() {
