@@ -124,5 +124,38 @@ public class GameGuiView extends JPanel implements GameView {
     	JOptionPane.showMessageDialog(Main.getFrame(), msg);
     }
     
+    @Override
+    public void getEnemyCollInput() {
+    	Object options[] = {"fight", "run"};
+    	
+    	int res = JOptionPane.showOptionDialog(Main.getFrame(), 
+    			"You ran into an enemy.", 
+    			"Fight or run?", 
+    			JOptionPane.YES_NO_OPTION, 
+    			JOptionPane.QUESTION_MESSAGE, null, 
+    			options, options[0]);
+    	if (res == JOptionPane.YES_OPTION)
+    		controller.onFight();
+    	else
+    		controller.onRun();
+    }
     
+    @Override
+    public boolean replaceArtifact(String replaceMsg) {
+    	Object options[] = {"Drop", "Replace"};
+    	
+    	int res = JOptionPane.showOptionDialog(Main.getFrame(), 
+    			"Would you like to replace " + replaceMsg + "?", 
+    			"Replace or drop?", 
+    			JOptionPane.YES_NO_OPTION, 
+    			JOptionPane.QUESTION_MESSAGE, null, 
+    			options, options[0]);
+    	return res == JOptionPane.YES_OPTION;
+    }
+    
+    @Override
+    public void switchView() {
+    	Main.hideFrame();
+    	new GameConsoleView().start();
+    }
 }
