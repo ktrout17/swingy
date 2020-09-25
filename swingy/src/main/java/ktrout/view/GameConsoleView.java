@@ -145,6 +145,6 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void switchView() {
-		new GameGUIView().start();
+		new GameGuiView().start();
 	}
 }

@@ -34,6 +34,7 @@ public class SelectHeroController {
 		CreateHero hero;
 		try {
 			hero = Database.selectHeroById(index + 1);
+			hero.validateHero();
 		} catch (HeroValidationException e) {
 			view.showErrorMsg(e.getMessage());
 			return;

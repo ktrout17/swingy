@@ -6,28 +6,24 @@ public abstract class Artifact {
 	
 	@Min(value = 1)
 	private String name;
-	protected int atk;
-	protected int def;
-	protected int hp;
+	private int points;
 	
 	
-	public Artifact(String name) {
+	public Artifact(String name, int points) {
 		name = this.name;
+		points = this.points;
 	}
 	
 	public String getName() {
 		return name;
 	}
 	
-	public int getAtk() {
-		return this.atk;
+	public int getPoints() {
+		return points;
 	}
-	
-	public int getDef() {
-		return this.def;
-	}
-	
-	public int getHp() {
-		return this.hp;
-	}
+
+	@Override
+    public String toString() {
+        return name + " (+" + points + ")";
+    }
 }

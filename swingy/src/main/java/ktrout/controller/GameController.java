@@ -7,7 +7,7 @@ import ktrout.model.artifacts.Armor;
 import ktrout.model.artifacts.Artifact;
 import ktrout.model.artifacts.Helm;
 import ktrout.model.artifacts.Weapon;
-import ktrout.model.characters.enemies.Enemies;
+import ktrout.model.characters.Enemies;
 import ktrout.util.MapPoints;
 import ktrout.view.GameView;
 
@@ -76,6 +76,10 @@ public class GameController {
 	}
 	
 	private void updateDb() {
+		view.getEnemyCollInput();
+	}
+
+	private void enemyCollision() {
 		view.getEnemyCollInput();
 	}
 	

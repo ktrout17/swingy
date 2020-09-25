@@ -4,21 +4,21 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import ktrout.model.characters.enemies.Enemies;
+import ktrout.model.characters.Enemies;
 
 public abstract class Character {
 
-	@NotNull
-	@Size(min = 1, max = 12)
+	@NotNull(message = "Name cannot be null.")
+	@Size(min = 1, max = 12, message = "Name must be minimum 1 character and maxmimum 12 characters.")
 	protected String name;
 
-	@Min(value = 0)
+	@Min(value = 0, message = "Attack cannot be less than zero.")
 	protected int atk;
 
-	@Min(value = 0)
+	@Min(value = 0, message = "Defense cannot be less than zero.")
 	protected int def;
 
-	@Min(value = 1)
+	@Min(value = 1, message = "HP cannot be less than one.")
 	protected int hp;
 
 	public Character(String name, int atk, int def, int hp) {

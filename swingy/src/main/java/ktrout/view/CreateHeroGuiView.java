@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-// import ktrout.Main;
+import ktrout.Main;
 import ktrout.controller.CreateHeroController;
 
 public class CreateHeroGuiView extends JPanel implements CreateHeroView {

@@ -7,6 +7,7 @@ import ktrout.model.characters.CreateHero;
 import ktrout.model.characters.HeroFactory;
 import ktrout.view.CreateHeroView;
 import ktrout.util.Database;
+import ktrout.util.HeroValidationException;
 
 public class CreateHeroController {
 	
@@ -22,6 +23,7 @@ public class CreateHeroController {
 		CreateHero hero;
 		try {
 			hero = HeroFactory.newHero(name, heroClass);
+			hero.validateHero();
 		} catch (IllegalArgumentException | HeroValidationException e) {
 			view.showErrorMsg(e.getMessage());
 			view.getUserInput();

@@ -15,21 +15,23 @@ public class Database {
     private static Connection connection;
 
     public static void connect() {
-        
-        Connection conn = null;
+		Connection conn = null;
+		
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(DB_URL);
             System.out.println("Connected to db");
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
-        }
+		}
+		connection = conn;
     }
 
     public static void close() {
         try {
             if (connection != null)
-                connection.close();
+				connection.close();
+			connection = null;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -109,5 +111,38 @@ public class Database {
     		System.out.println(e.getMessage());
     	}
     	return arrayList;
-    }
+	}
+	
+	public static void updateHero(CreateHero hero) {
+		String query = "UPDATE heroes SET level = ?, exp = ?, att = ?, def = ?, hp = ?, " +
+			"weapon_name = ?, weapon_val = ?, helm_name = ?, helm_val = ?, armour_name = ?, armour_val = ? " +
+			"WHERE id = ?";
+
+		try (PreparedStatement stmt = getConnection().prepareStatement(query)) {
+			stmt.setInt(1, hero.getLvl());
+			stmt.setInt(2, hero.getExp());
+			stmt.setInt(3, hero.getAtk());
+			stmt.setInt(4, hero.getDef());
+			stmt.setInt(5, hero.getHp());
+
+			if (hero.getWeap() != null) {
+				stmt.setString(6, hero.getWeap().getName());
+				stmt.setInt(7, hero.getWeap().getPoints());
+			}
+			if (hero.getHelm() != null) {
+				stmt.setString(8, hero.getHelm().getName());
+				stmt.setInt(9, hero.getHelm().getPoints());
+			}
+			if (hero.getArmor() != null) {
+				stmt.setString(10, hero.getArmor().getName());
+				stmt.setInt(11, hero.getArmor().getPoints());
+			}
+
+			stmt.setInt(12, hero.getId());
+
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

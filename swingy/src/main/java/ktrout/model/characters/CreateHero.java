@@ -1,11 +1,19 @@
 package ktrout.model.characters;
 
+import java.util.logging.Level;
+import java.util.Set;
+
+import javax.validation.ValidatorFactory;
+import javax.validation.Validation;
+import javax.validation.ConstraintViolation;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.Validator;
 
 import ktrout.model.artifacts.Armor;
 import ktrout.model.artifacts.Helm;
 import ktrout.model.artifacts.Weapon;
+import ktrout.util.HeroValidationException;
 
 public class CreateHero extends Character {
 
@@ -45,27 +53,27 @@ public class CreateHero extends Character {
 	
 	public void equipHelm(Helm helm) {
 		if (this.helm != null) {
-			this.hp = this.hp - this.helm.getHp();
-			if (this.hp + helm.getHp() <= 0) {
-				this.hp = this.hp + this.helm.getHp();
+			this.hp = this.hp - this.helm.getPoints();
+			if (this.hp + helm.getPoints() <= 0) {
+				this.hp = this.hp + this.helm.getPoints();
 				return;
 			}
 		}
-		this.hp = this.hp + helm.getHp();
+		this.hp = this.hp + helm.getPoints();
 		helm = this.helm;
 	}
 	
 	public void equipArmor(Armor armor) {
 		if (this.armor != null)
-			this.def = this.def - this.armor.getDef();
-		this.def = this.def + this.armor.getDef();
+			this.def = this.def - this.armor.getPoints();
+		this.def = this.def + this.armor.getPoints();
 		armor = this.armor;
 	}
 	
 	public void equipWeap(Weapon weap) {
 		if (this.weap != null)
-			this.atk = this.atk - this.weap.getAtk();
-		this.atk = this.atk + this.weap.getAtk();
+			this.atk = this.atk - this.weap.getPoints();
+		this.atk = this.atk + this.weap.getPoints();
 		weap = this.weap;
 	}
 	
@@ -83,6 +91,29 @@ public class CreateHero extends Character {
 		hp = hp + 40 + (lvl * 5);
 		atk = atk + (lvl * 5);
 		def = def + (lvl * 3);
+	}
+
+	public void validateHero() throws HeroValidationException {
+		java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
+
+		Set<ConstraintViolation<CreateHero>> constraintViolations = validator.validate(this);
+		if (constraintViolations.size() != 0) {
+			StringBuilder stringBuilder = new StringBuilder();
+			stringBuilder.append("Hero validation ERROR/S: ");
+			stringBuilder.append(constraintViolations.size() + "\n");
+			for (ConstraintViolation<CreateHero> constViol : constraintViolations) {
+				stringBuilder.append("property: [");
+				stringBuilder.append(constViol.getPropertyPath());
+				stringBuilder.append("], value: [");
+				stringBuilder.append(constViol.getInvalidValue());
+				stringBuilder.append("], message: [");
+				stringBuilder.append(constViol.getMessage() + "]\n");
+			}
+			throw new HeroValidationException(stringBuilder.toString());
+		}
+
 	}
 	
 	public void setWeap(Weapon weap) {
