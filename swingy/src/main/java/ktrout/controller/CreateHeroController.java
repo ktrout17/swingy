@@ -6,7 +6,7 @@ import ktrout.model.Game;
 import ktrout.model.characters.CreateHero;
 import ktrout.model.characters.HeroFactory;
 import ktrout.view.CreateHeroView;
-import util.Database;
+import ktrout.util.Database;
 
 public class CreateHeroController {
 	

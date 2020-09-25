@@ -1,4 +1,4 @@
-package util;
+package ktrout.util;
 
 import java.sql.*;
 import java.util.ArrayList;

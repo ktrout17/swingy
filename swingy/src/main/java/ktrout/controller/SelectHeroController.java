@@ -6,7 +6,7 @@ import ktrout.model.Game;
 import ktrout.model.characters.CreateHero;
 import ktrout.util.HeroValidationException;
 import ktrout.view.SelectHeroView;
-import util.Database;
+import ktrout.util.Database;
 
 public class SelectHeroController {
 

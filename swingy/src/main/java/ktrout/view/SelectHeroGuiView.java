@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -81,15 +83,20 @@ public class SelectHeroGuiView extends JPanel implements SelectHeroView {
 					if (list.getSelectedIndex() != -1) {
 						controller.onElementSelected(list.getSelectedIndex());
 						selectButton.setEnabled(true);
-						lastSelIndex = list.getSelectedIndex()
+						lastSelIndex = list.getSelectedIndex();
 					} else {
 						selectButton.setEnabled(false);
-					}
-						
+					}		
 				}
 			}
 		});
 		selectButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.onSelect(lastSelIndex);
+			}
+		});
+		createButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.onCreate();

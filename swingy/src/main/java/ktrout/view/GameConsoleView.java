@@ -40,7 +40,7 @@ public class GameConsoleView implements GameView {
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			
-			if ("map".equalsIgnoreCase(input))) {
+			if ("map".equalsIgnoreCase(input)) {
 				controller.onPrintMap();
 				break;
 			} else if ("north".equalsIgnoreCase(input) ||
@@ -145,6 +145,6 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void switchView() {
-		new GameGUIView().start;
+		new GameGUIView().start();
 	}
 }

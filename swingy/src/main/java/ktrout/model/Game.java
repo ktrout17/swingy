@@ -12,8 +12,7 @@ import ktrout.model.artifacts.Artifact;
 import ktrout.model.artifacts.Helm;
 import ktrout.model.artifacts.Weapon;
 import ktrout.model.characters.CreateHero;
-import ktrout.model.characters.Enemy;
-import ktrout.model.characters.EnemyFactory;
+import ktrout.model.characters.enemies.EnemyFactory;
 import ktrout.model.characters.enemies.Enemies;
 import ktrout.util.MapPoints;
 
@@ -69,9 +68,9 @@ public class Game {
 			"BONE SHIELD"
 			));
 	
-	artifacts.add(weapons);
-	artifacts.add(helms);
-	artifacts.add(armor);
+	// artifacts.add(weapons);
+	// artifacts.add(helms);
+	// artifacts.add(armor);
 	
 	private Game() {
 	}
@@ -87,6 +86,9 @@ public class Game {
 		generateMap();
 		generateEnemies();
 		placeHero();
+		artifacts.add(weapons);
+		artifacts.add(helms);
+		artifacts.add(armor);
 	}
 	
 	private void generateMap() {
