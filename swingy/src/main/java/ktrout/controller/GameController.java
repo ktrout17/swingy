@@ -7,8 +7,10 @@ import ktrout.model.artifacts.Armor;
 import ktrout.model.artifacts.Artifact;
 import ktrout.model.artifacts.Helm;
 import ktrout.model.artifacts.Weapon;
+import ktrout.model.characters.CreateHero;
 import ktrout.model.characters.Enemies;
 import ktrout.util.MapPoints;
+import ktrout.util.Database;
 import ktrout.view.GameView;
 
 public class GameController {

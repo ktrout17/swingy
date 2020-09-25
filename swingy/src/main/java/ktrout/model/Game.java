@@ -112,6 +112,7 @@ public class Game {
 		int atk = randomIntFromInterval((hero.getAtk() - 20), (hero.getAtk() + 5 + hero.getLvl()));
 		int def = randomIntFromInterval((hero.getDef() - 20), (hero.getDef() + 5 + hero.getLvl()));
 		int hp = randomIntFromInterval((hero.getHp() - 50), (hero.getHp() + 20 + hero.getLvl()));
+		Artifact artifact = generateArtifact();
 
 		if (atk < 0)
 			atk = -atk;
@@ -122,7 +123,7 @@ public class Game {
 		if (hp < 0)
 			hp = -hp;
 
-		return new Enemies(enemy, atk, def, hp);
+		return new Enemies(enemy, atk, def, hp, artifact);
 	}
 	
 	private Artifact generateArtifact() {

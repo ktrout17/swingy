@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 
 import ktrout.Main;
 import ktrout.controller.StartController;
+import ktrout.view.CreateHeroGuiView;
+import ktrout.view.SelectHeroGuiView;
 
 public class StartGuiView extends JPanel implements StartView {
 		

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import ktrout.Main;
 import ktrout.controller.CreateHeroController;
+import ktrout.view.GameConsoleView;
 
 public class CreateHeroConsoleView implements CreateHeroView {
 

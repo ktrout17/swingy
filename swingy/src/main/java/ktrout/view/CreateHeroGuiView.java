@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 
 import ktrout.Main;
 import ktrout.controller.CreateHeroController;
+import ktrout.view.GameGuiView;
 
 public class CreateHeroGuiView extends JPanel implements CreateHeroView {
 	

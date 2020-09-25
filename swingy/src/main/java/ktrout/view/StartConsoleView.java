@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 import ktrout.Main;
 import ktrout.controller.StartController;
+import ktrout.view.CreateHeroConsoleView;
+import ktrout.view.SelectHeroConsoleView;
+import ktrout.view.StartGuiView;
 
 public class StartConsoleView implements StartView {
 

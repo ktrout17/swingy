@@ -20,6 +20,8 @@ import javax.swing.event.ListSelectionListener;
 
 import ktrout.Main;
 import ktrout.controller.SelectHeroController;
+import ktrout.view.CreateHeroGuiView;
+import ktrout.view.GameGuiView;
 
 public class SelectHeroGuiView extends JPanel implements SelectHeroView {
 

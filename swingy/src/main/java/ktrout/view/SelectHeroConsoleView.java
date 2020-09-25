@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import ktrout.Main;
 import ktrout.controller.SelectHeroController;
+import ktrout.view.CreateHeroConsoleView;
+import ktrout.view.GameConsoleView;
 
 public class SelectHeroConsoleView implements SelectHeroView {
 	

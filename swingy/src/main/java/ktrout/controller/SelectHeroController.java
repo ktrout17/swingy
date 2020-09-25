@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import ktrout.model.Game;
 import ktrout.model.characters.CreateHero;
 import ktrout.util.HeroValidationException;
-import ktrout.view.SelectHeroView;
 import ktrout.util.Database;
+import ktrout.view.SelectHeroView;
 
 public class SelectHeroController {
 
