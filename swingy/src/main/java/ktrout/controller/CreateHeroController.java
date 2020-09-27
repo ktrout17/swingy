@@ -15,7 +15,7 @@ public class CreateHeroController {
 	private Game game;
 	
 	public CreateHeroController(CreateHeroView view) {
-		view = this.view;
+		this.view = view;
 		game = Game.getInstance();
 	}
 	

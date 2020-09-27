@@ -19,47 +19,47 @@ public class HeroCreator {
 	private Helm helm;
 	
 	public void setId(int id) {
-		id = this.id;
+		this.id = id;
 	}
 	
 	public void setName(String name) {
-		name = this.name;
+		this.name = name;
 	}
 	
 	public void setAtk(int atk) {
-		atk = this.atk;
+		this.atk = atk;
 	}
 	
 	public void setDef(int def) {
-		def = this.def;
+		this.def = def;
 	}
 	
 	public void setHp(int hp) {
-		hp = this.hp;
+		this.hp = hp;
 	}
 	
 	public void setHeroClass (String heroClass) {
-		heroClass = this.heroClass;
+		this.heroClass = heroClass;
 	}
 	
 	public void setLvl(int lvl) {
-		lvl = this.lvl;
+		this.lvl = lvl;
 	}
 	
 	public void setExp(int exp) {
-		exp = this.exp;
+		this.exp = exp;
 	}
 	
 	public void setWeap(Weapon weap) {
-		weap = this.weap;
+		this.weap = weap;
 	}
 	
 	public void setArmor(Armor armor) {
-		armor = this.armor;
+		this.armor = armor;
 	}
 	
 	public void setHelm(Helm helm) {
-		helm = this.helm;
+		this.helm = helm;
 	}
 	
 	public CreateHero getHero() {

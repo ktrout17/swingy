@@ -78,7 +78,7 @@ public class Game {
 	}
 	
 	public void startGame(CreateHero hero) {
-		hero = this.hero;
+		this.hero = hero;
 		generateMap();
 		generateEnemies();
 		placeHero();
@@ -172,7 +172,7 @@ public class Game {
 	}
 	
 	public void setHero(CreateHero hero) {
-		hero = this.hero;
+		this.hero = hero;
 	}
 	
 	public MapPoints getHeroCoords() {
@@ -180,7 +180,7 @@ public class Game {
 	}
 	
 	public void setHeroCoords(MapPoints heroCoords) {
-		heroCoords = this.heroCoords;
+		this.heroCoords = heroCoords;
 	}
 	
 	public boolean[][] getMap() {
@@ -188,6 +188,6 @@ public class Game {
 	}
 	
 	public void setMap(boolean[][] map) {
-		map = this.map;
+		this.map = map;
 	}
 }

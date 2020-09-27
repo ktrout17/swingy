@@ -1,6 +1,7 @@
 package ktrout.model.characters;
 
 public class HeroBuilder {
+	
 	private static HeroCreator createNew(String name) {
 		HeroCreator creator = new HeroCreator();
 		creator.setName(name);

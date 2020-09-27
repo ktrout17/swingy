@@ -10,8 +10,8 @@ public abstract class Artifact {
 	
 	
 	public Artifact(String name, int points) {
-		name = this.name;
-		points = this.points;
+		this.name = name;
+		this.points = points;
 	}
 	
 	public String getName() {

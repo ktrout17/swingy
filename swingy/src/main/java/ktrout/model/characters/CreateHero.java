@@ -9,6 +9,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.Validator;
+import javax.validation.*;
 
 import ktrout.model.artifacts.Armor;
 import ktrout.model.artifacts.Helm;
@@ -23,24 +24,24 @@ public class CreateHero extends Character {
 	
 	private int id;
 	
-	@Min(value = 0)
+	@Min(value = 0, message = "Level cannot be less than zero.")
 	private int lvl;
 	
-	@Min(value = 0)
+	@Min(value = 0, message = "Exp cannot be less than zero.")
 	private int exp;
 	
-	@NotNull
+	@NotNull(message = "Class cannot be null.")
 	private String heroClass;
 	
 	public CreateHero(String name, int atk, int def, int hp, int id, String heroClass, int lvl, int exp, Weapon weap, Armor armor, Helm helm) {
 		super(name, atk, def, hp);
-		id = this.id;
-		weap = this.weap;
-		armor = this.armor;
-		helm = this.helm;
-		lvl = this.lvl;
-		exp = this.exp;
-		heroClass = this.heroClass;
+		this.id = id;
+		this.weap = weap;
+		this.armor = armor;
+		this.helm = helm;
+		this.lvl = lvl;
+		this.exp = exp;
+		this.heroClass = heroClass;
 	}
 	
 	public int getId() {
@@ -48,51 +49,9 @@ public class CreateHero extends Character {
 	}
 	
 	public void setId(int id) {
-		id = this.id;
+		this.id = id;
 	}
 	
-	public void equipHelm(Helm helm) {
-		if (this.helm != null) {
-			this.hp = this.hp - this.helm.getPoints();
-			if (this.hp + helm.getPoints() <= 0) {
-				this.hp = this.hp + this.helm.getPoints();
-				return;
-			}
-		}
-		this.hp = this.hp + helm.getPoints();
-		helm = this.helm;
-	}
-	
-	public void equipArmor(Armor armor) {
-		if (this.armor != null)
-			this.def = this.def - this.armor.getPoints();
-		this.def = this.def + this.armor.getPoints();
-		armor = this.armor;
-	}
-	
-	public void equipWeap(Weapon weap) {
-		if (this.weap != null)
-			this.atk = this.atk - this.weap.getPoints();
-		this.atk = this.atk + this.weap.getPoints();
-		weap = this.weap;
-	}
-	
-	// exp formula = level*1000+(level−1)2*450
-	public void addExp(int addExp) {
-		int nextLvl = lvl * 1000 + (lvl - 1) * (lvl - 1) * 450;
-		
-		if (exp + addExp >= nextLvl)
-			levelUp();
-		exp = exp + addExp;
-	}
-	
-	private void levelUp() {
-		lvl++;
-		hp = hp + 40 + (lvl * 5);
-		atk = atk + (lvl * 5);
-		def = def + (lvl * 3);
-	}
-
 	public void validateHero() throws HeroValidationException {
 		java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -115,9 +74,51 @@ public class CreateHero extends Character {
 		}
 
 	}
+
+	public void equipHelm(Helm helm) {
+		if (this.helm != null) {
+			this.hp = this.hp - this.helm.getPoints();
+			if (this.hp + helm.getPoints() <= 0) {
+				this.hp = this.hp + this.helm.getPoints();
+				return;
+			}
+		}
+		this.hp = this.hp + helm.getPoints();
+		this.helm = helm;
+	}
+	
+	public void equipArmor(Armor armor) {
+		if (this.armor != null)
+			this.def = this.def - this.armor.getPoints();
+		this.def = this.def + this.armor.getPoints();
+		this.armor = armor;
+	}
+	
+	public void equipWeap(Weapon weap) {
+		if (this.weap != null)
+			this.atk = this.atk - this.weap.getPoints();
+		this.atk = this.atk + this.weap.getPoints();
+		this.weap = weap;
+	}
+	
+	// exp formula = level*1000+(level−1)2*450
+	public void addExp(int addExp) {
+		int nextLvl = lvl * 1000 + (lvl - 1) * (lvl - 1) * 450;
+		
+		if (exp + addExp >= nextLvl)
+			levelUp();
+		exp = exp + addExp;
+	}
+	
+	private void levelUp() {
+		lvl++;
+		hp = hp + 40 + (lvl * 5);
+		atk = atk + (lvl * 5);
+		def = def + (lvl * 3);
+	}
 	
 	public void setWeap(Weapon weap) {
-		weap = this.weap;
+		this.weap = weap;
 	}
 	
 	public Weapon getWeap() {
@@ -125,7 +126,7 @@ public class CreateHero extends Character {
 	}
 	
 	public void setHelm(Helm helm) {
-		helm = this.helm;
+		this.helm = helm;
 	}
 	
 	public Helm getHelm() {
@@ -133,7 +134,7 @@ public class CreateHero extends Character {
 	}
 	
 	public void setArmor(Armor armor) {
-		armor = this.armor;
+		this.armor = armor;
 	}
 	
 	public Armor getArmor() {
@@ -141,7 +142,7 @@ public class CreateHero extends Character {
 	}
 	
 	public void setLvl(int lvl) {
-		lvl = this.lvl;
+		this.lvl = lvl;
 	}
 	
 	public int getLvl() {
@@ -149,7 +150,7 @@ public class CreateHero extends Character {
 	}
 	
 	public void setExp(int exp) {
-		exp = this.exp;
+		this.exp = exp;
 	}
 	
 	public int getExp() {
@@ -157,10 +158,43 @@ public class CreateHero extends Character {
 	}
 	
 	public void setHeroClass(String heroClass) {
-		heroClass = this.heroClass;
+		this.heroClass = heroClass;
 	}
 	
 	public String getHeroClass() {
 		return heroClass;
 	}
+	
+	// @Override
+	public String printInfo() {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append("NAME:		").append(name).append("\n");
+		stringBuilder.append("CLASS:		").append(heroClass).append("\n");
+		stringBuilder.append("LEVEL:		").append(lvl).append("\n");
+		stringBuilder.append("EXP:		").append(exp).append("\n");
+		stringBuilder.append("ATT:		").append(atk).append("\n");
+		stringBuilder.append("DEF:		").append(def).append("\n");
+		stringBuilder.append("HP:		").append(hp).append("\n");
+		
+		stringBuilder.append("WEAPON:		");
+		if (weap != null)
+			stringBuilder.append(weap.getName()).append(" (att +").append(weap.getPoints()).append(")\n");
+		else
+			stringBuilder.append("no weapon equipped\n");
+		
+		stringBuilder.append("HELM:		");
+		if (helm != null)
+			stringBuilder.append(helm.getName()).append(" (HP +").append(weap.getPoints()).append(")\n");
+		else
+			stringBuilder.append("no helmet equipped\n");
+	
+		stringBuilder.append("ARMOR:		");
+		if (armor != null)
+			stringBuilder.append(armor.getName()).append(" (def +").append(weap.getPoints()).append(")\n");
+		else
+			stringBuilder.append("no armor equipped\n");
+	
+		return stringBuilder.toString();
+	}
 }
+

@@ -20,11 +20,11 @@ public class Database {
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection(DB_URL);
-            System.out.println("Connected to db");
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
 		}
 		connection = conn;
+		// System.out.println("Connected to DB");
     }
 
     public static void close() {
@@ -44,7 +44,7 @@ public class Database {
     }
     
     public static int insert(String name, String className, int lvl, int exp, int atk, int def, int hp) {
-    	String query = "INSERT INTO heroes(name, class, level, exp, att, def, hp) VALUES(?, ?, ?, ?, ?, ?)";
+    	String query = "INSERT INTO heroes(name, class, level, exp, att, def, hp) VALUES(?, ?, ?, ?, ?, ?, ?)";
     	int id = 0;
     	try (PreparedStatement stmt = getConnection().prepareStatement(query)) {
     		stmt.setString(1, name);

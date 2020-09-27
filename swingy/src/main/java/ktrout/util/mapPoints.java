@@ -6,8 +6,8 @@ public class MapPoints {
 	private int y;
 	
 	public MapPoints(int x, int y) {
-		x = this.x;
-		y = this.y;
+		this.x = x;
+		this.y = y;
 	}
 	
 	public int getX() {
@@ -19,10 +19,10 @@ public class MapPoints {
 	}
 	
 	public void setX(int x) {
-		x = this.x;
+		this.x = x;
 	}
 	
 	public void setY(int y) {
-		y = this.y;
+		this.y = y;
 	}
 }

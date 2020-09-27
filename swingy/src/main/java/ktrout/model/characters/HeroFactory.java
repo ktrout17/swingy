@@ -2,7 +2,7 @@ package ktrout.model.characters;
 
 public abstract class HeroFactory {
 	public static CreateHero newHero(String name, String heroClass) {
-		switch (heroClass) {
+		switch (heroClass.toUpperCase()) {
 			case "FIGHTER":
 				return HeroBuilder.createFighter(name);
 			case "NINJA":

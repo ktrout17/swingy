@@ -20,7 +20,7 @@ public class GameConsoleView implements GameView {
 	@Override
 	public void update(Game game) {
 		System.out.println("**********YOUR INFO**********");
-		System.out.println(game.getHero().toString() + 
+		System.out.println(game.getHero().printInfo() + 
 				"Position: " + "(" + game.getHeroCoords().getX() +
 				"," + game.getHeroCoords().getY() + ")");
 		System.out.println("*****************************");

@@ -22,10 +22,10 @@ public abstract class Character {
 	protected int hp;
 
 	public Character(String name, int atk, int def, int hp) {
-		name = this.name;
-		atk = this.atk;
-		def = this.def;
-		hp = this.hp;
+		this.name = name;
+		this.atk = atk;
+		this.def = def;
+		this.hp = hp;
 	}
     // if attack > enemy's def -> enemy hp = enemy hp - (hero's atk - enemy's def)
 	public void atk(Character enemy) {
@@ -45,7 +45,7 @@ public abstract class Character {
     }
 
 	public void setName(String name) {
-		name = this.name;
+		this.name = name;
 	}
 
 	public String getName() {
@@ -53,7 +53,7 @@ public abstract class Character {
 	}
 
 	public void setAtk(int atk) {
-		atk = this.atk;
+		this.atk = atk;
 	}
 
 	public int getAtk() {
@@ -61,7 +61,7 @@ public abstract class Character {
 	}
 
 	public void setDef(int def) {
-		def = this.def;
+		this.def = def;
 	}
 
 	public int getDef() {
@@ -69,7 +69,7 @@ public abstract class Character {
 	}
 
 	public void setHp(int hp) {
-		hp = this.hp;
+		this.hp = hp;
 	}
 
 	public int getHp() {

@@ -20,7 +20,7 @@ public class GameController {
 	private MapPoints prevPos;
 	
 	public GameController(GameView view) {
-		view = this.view;
+		this.view = view;
 		game = Game.getInstance();
 		prevPos = new MapPoints(0, 0);
 	}

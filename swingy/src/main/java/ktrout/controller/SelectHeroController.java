@@ -14,7 +14,7 @@ public class SelectHeroController {
 	private Game game;
 	
 	public SelectHeroController(SelectHeroView view) {
-		view = this.view;
+		this.view = view;
 		game = Game.getInstance();
 	}
 	

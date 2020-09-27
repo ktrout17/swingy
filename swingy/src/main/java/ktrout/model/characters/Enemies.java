@@ -8,7 +8,7 @@ public class Enemies extends Character {
 
     public Enemies(String name, int atk, int def, int hp, Artifact artifact) {
         super(name, atk, def, hp);
-        artifact = this.artifact;
+        this.artifact = artifact;
     }
 
     public Artifact getArtifact() {

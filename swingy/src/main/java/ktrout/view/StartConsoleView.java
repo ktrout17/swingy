@@ -37,7 +37,7 @@ public class StartConsoleView implements StartView {
 				controller.onSwitch();
 				break;
 			} else {
-				System.out.println("Unknown Command.");
+				System.out.println("\nUnknown Command.");
 				System.out.println("Available Commands:");
 				System.out.println("CREATE, SELECT, SWITCH");
 			}
@@ -46,7 +46,7 @@ public class StartConsoleView implements StartView {
 	
 	@Override
 	public void openCreateHero() {
-		System.out.println("overidden");
+		//System.out.println("overidden");
 		new CreateHeroConsoleView().start();
 	}
 	
