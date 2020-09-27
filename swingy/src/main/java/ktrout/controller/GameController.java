@@ -40,19 +40,19 @@ public class GameController {
 		prevPos.setX(x);
 		prevPos.setY(y);
 	
-	switch (direction) {
-	case "NORTH":
-		y--;
-		break;
-	case "SOUTH":
-		y++;
-		break;
-	case "EAST":
-		x++;
-		break;
-	case "WEST":
-		x--;
-		break;
+		switch (direction.toUpperCase()) {
+		case "NORTH":
+			y--;
+			break;
+		case "SOUTH":
+			y++;
+			break;
+		case "EAST":
+			x++;
+			break;
+		case "WEST":
+			x--;
+			break;
 	}
 	
 	if (x < 0 || y < 0 || x >= game.getMapSize() || y >= game.getMapSize()) {

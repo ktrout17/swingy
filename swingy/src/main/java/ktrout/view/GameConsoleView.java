@@ -19,11 +19,11 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void update(Game game) {
-		System.out.println("**********YOUR INFO**********");
+		System.out.println("**************** YOUR INFO ****************");
 		System.out.println(game.getHero().printInfo() + 
-				"Position: " + "(" + game.getHeroCoords().getX() +
+				"Position:	" + "(" + game.getHeroCoords().getX() +
 				"," + game.getHeroCoords().getY() + ")");
-		System.out.println("*****************************");
+		System.out.println("*******************************************");
 		
 		getUserInput();
 	}
@@ -96,9 +96,9 @@ public class GameConsoleView implements GameView {
 		System.out.println();
 		System.out.println("You've encountered an enemy.");
 		System.out.println("What would you like to do?");
-		System.out.println("FIGHT - enter combat with the enemy");
+		System.out.println("\nFIGHT - enter combat with the enemy");
 		System.out.println("RUN - you will have a 50% chance to move back to your previous position.");
-		System.out.println("Available commands:");
+		System.out.println("\nAvailable commands:");
 		System.out.println("FIGHT, RUN");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
