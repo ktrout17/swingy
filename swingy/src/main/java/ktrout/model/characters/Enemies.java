@@ -1,5 +1,7 @@
 package ktrout.model.characters;
 
+import ktrout.model.artifacts.Artifact;
+
 public class Enemies extends Character {
     
     private Artifact artifact;

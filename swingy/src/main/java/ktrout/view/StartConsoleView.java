@@ -19,8 +19,8 @@ public class StartConsoleView implements StartView {
 		System.out.println("Let's begin.");
 		
 		Scanner scanner = Main.getScanner();
-		System.out.println();
-		System.out.println("CREATE - create a new hero");
+
+		System.out.println("\nCREATE - create a new hero");
 		System.out.println("SELECT - select a previously created hero");
 		System.out.println("SWITCH - switch to GUI view");
 		System.out.println("\nAvailable Commands:");
@@ -46,6 +46,7 @@ public class StartConsoleView implements StartView {
 	
 	@Override
 	public void openCreateHero() {
+		System.out.println("overidden");
 		new CreateHeroConsoleView().start();
 	}
 	

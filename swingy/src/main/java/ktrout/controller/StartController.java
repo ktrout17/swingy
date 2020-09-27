@@ -7,7 +7,7 @@ public class StartController {
 	private StartView view;
 	
 	public StartController(StartView view) {
-		view = this.view;
+		this.view = view;
 	}
 	
 	public void onCreate() {
