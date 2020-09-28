@@ -21,4 +21,8 @@ public class StartController {
 	public void onSelect() {
 		view.openSelectHero();
 	}
+
+	public void onQuit() {
+		view.quitGame();
+	}
 }

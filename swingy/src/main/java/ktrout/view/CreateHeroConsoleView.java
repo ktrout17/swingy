@@ -2,6 +2,8 @@ package ktrout.view;
 
 import java.util.Scanner;
 
+import javax.validation.constraints.NotNull;
+
 import ktrout.Main;
 import ktrout.controller.CreateHeroController;
 import ktrout.view.GameConsoleView;
@@ -22,6 +24,7 @@ public class CreateHeroConsoleView implements CreateHeroView {
 		
 		System.out.println("\nTo create your hero, enter a name and choose a class.");
 		System.out.println("What is your name?");
+		@NotNull(message = "Name cannot be null")
 		String name = scanner.nextLine();
 		System.out.println("\nClasses: 	ATTACK		DEFENSE		HP\n" +
 				"FIGHTER		50		50		150\n" + 

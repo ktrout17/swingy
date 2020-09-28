@@ -35,10 +35,11 @@ public class GameConsoleView implements GameView {
 		
 		System.out.println("Where would you like to move?");
 		System.out.println("\nThese are your choices:");
-		System.out.println("NORTH, SOUTH, EAST, WEST");
+		System.out.println("NORTH, SOUTH, EAST, WEST\n");
+		System.out.println("QUIT - exit the game.");
 		// System.out.println("\nIf you would like to switch to GUI:\nSWITCH");
 		System.out.println("\nAvailable commands: ");
-		System.out.println("NORTH, SOUTH, EAST, WEST");
+		System.out.println("NORTH, SOUTH, EAST, WEST, QUIT");
 		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
@@ -52,13 +53,13 @@ public class GameConsoleView implements GameView {
 					"west".equalsIgnoreCase(input)) {
 				controller.onMove(input);
 				break;
-			// } else if ("switch".equalsIgnoreCase(input)) {
-			// 	controller.onSwitch();
-			// 	break;
+			} else if("quit".equalsIgnoreCase(input)) {
+				controller.onQuit();
+				break;
 			} else {
-				System.out.println("Unknown command.");
-				System.out.println("Please choose one of the vailable commands: ");
-				System.out.println("NORTH, SOUTH, EAST, WEST");
+				System.out.println("\nUnknown command.");
+				System.out.println("Please choose one of the available commands: ");
+				System.out.println("NORTH, SOUTH, EAST, WEST, QUIT");
 				System.out.println("_______________________________________\n");
 			}
 		}
@@ -116,8 +117,8 @@ public class GameConsoleView implements GameView {
 				controller.onRun();
 				break;
 			} else {
-				System.out.println("Unknown command.");
-				System.out.println("Please choose one of the vailable commands: ");
+				System.out.println("\nUnknown command.");
+				System.out.println("Please choose one of the available commands: ");
 				System.out.println("FIGHT, RUN");
 				System.out.println("_______________________________________\n");
 			}
@@ -143,8 +144,8 @@ public class GameConsoleView implements GameView {
 			} else if ("replace".equalsIgnoreCase(input)) {
 				return true;
 			} else {
-				System.out.println("Unknown command.");
-				System.out.println("Please choose one of the vailable commands: ");
+				System.out.println("\nUnknown command.");
+				System.out.println("Please choose one of the available commands: ");
 				System.out.println("DROP, REPLACE");
 				System.out.println("_______________________________________\n");
 			}
@@ -155,5 +156,12 @@ public class GameConsoleView implements GameView {
 	@Override
 	public void switchView() {
 		new GameGuiView().start();
+	}
+
+	@Override
+	public void quitGame() {
+		System.out.println("\nGoodbye!");
+		Main.getFrame().dispose();
+		Main.closeConnections();
 	}
 }

@@ -19,6 +19,7 @@ public class StartGuiView extends JPanel implements StartView {
 		
 	private JButton createHeroButton = new JButton("Create Hero");
 	private JButton selectHeroButton = new JButton("Select Hero");
+	private JButton quitButton = new JButton("Quit Game");
 	// private JButton switchViewButton = new JButton("Switch to console view");
 	
 	private StartController controller;
@@ -42,6 +43,7 @@ public class StartGuiView extends JPanel implements StartView {
 		
 		this.add(createHeroButton, gbc);
 		this.add(selectHeroButton, gbc);
+		this.add(quitButton, gbc);
 		// this.add(switchViewButton, gbc);
 		
 		this.setVisible(true);
@@ -59,6 +61,12 @@ public class StartGuiView extends JPanel implements StartView {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.onSelect();
+			}
+		});
+		quitButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.onQuit();
 			}
 		});
 		// switchViewButton.addActionListener(new ActionListener() {
@@ -86,4 +94,11 @@ public class StartGuiView extends JPanel implements StartView {
 		this.setVisible(false);
 		new SelectHeroGuiView().start();
 	}
+
+	@Override
+    public void quitGame() {
+    	Main.hideFrame();
+    	Main.getFrame().dispose();
+    	Main.closeConnections();
+    }
 }

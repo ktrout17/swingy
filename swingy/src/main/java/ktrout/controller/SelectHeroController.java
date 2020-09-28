@@ -48,4 +48,8 @@ public class SelectHeroController {
 	public void onCreate() {
 		view.openCreateHero();
 	}
+
+	public void onQuit() {
+		view.quitGame();
+	}
 }

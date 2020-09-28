@@ -9,4 +9,6 @@ public interface StartView {
 	void switchView();
 	
 	void openSelectHero();
+
+	void quitGame();
 }

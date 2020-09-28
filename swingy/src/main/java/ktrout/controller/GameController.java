@@ -128,7 +128,8 @@ public class GameController {
 			game.getMap()[game.getHeroCoords().getY()][game.getHeroCoords().getX()] = false;
 			setArtifact(enemy.getArtifact());
 		} else {
-			view.showMsg("You died, Game Over.");
+			view.showMsg("The enemy was too strong!");
+			view.showMsg("You died - Game Over.");
 			view.gameDone();
 		}
 	}
@@ -142,6 +143,10 @@ public class GameController {
 	
 	public void onSwitch() {
 		view.switchView();
+	}
+
+	public void onQuit() {
+		view.quitGame();
 	}
 	
 }

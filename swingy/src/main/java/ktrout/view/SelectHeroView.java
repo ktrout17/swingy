@@ -11,4 +11,6 @@ public interface SelectHeroView {
 	void openGame();
 	
 	void openCreateHero();
+
+	void quitGame();
 }

@@ -22,9 +22,10 @@ public class StartConsoleView implements StartView {
 
 		System.out.println("\nCREATE - create a new hero");
 		System.out.println("SELECT - select a previously created hero");
+		System.out.println("QUIT - exit the game");
 		// System.out.println("SWITCH - switch to GUI view");
 		System.out.println("\nAvailable Commands:");
-		System.out.println("CREATE, SELECT");
+		System.out.println("CREATE, SELECT, QUIT");
 		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
@@ -37,10 +38,13 @@ public class StartConsoleView implements StartView {
 			} else if ("switch".equalsIgnoreCase(input)) {
 				controller.onSwitch();
 				break;
+			} else if("quit".equalsIgnoreCase(input)) {
+				controller.onQuit();
+				break;
 			} else {
 				System.out.println("\nUnknown Command.");
 				System.out.println("Available Commands:");
-				System.out.println("CREATE, SELECT");
+				System.out.println("CREATE, SELECT, QUIT");
 				System.out.println("_______________________________________\n");
 			}
 		}
@@ -60,5 +64,12 @@ public class StartConsoleView implements StartView {
 	@Override
 	public void openSelectHero() {
 		new SelectHeroConsoleView().start();
+	}
+
+	@Override
+	public void quitGame() {
+		System.out.println("\nGoodbye!");
+		Main.getFrame().dispose();
+		Main.closeConnections();
 	}
 }

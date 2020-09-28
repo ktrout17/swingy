@@ -21,4 +21,6 @@ public interface GameView {
 	boolean replaceArtifact(String replaceMsg);
 	
 	void switchView();
+
+	void quitGame();
 }

@@ -126,7 +126,7 @@ public class Game {
 		if (hp < 0)
 			hp = -hp;
 
-		System.out.println("\n It appears to be a " + enemy + "!");
+		System.out.println("\nIt appears to be a " + enemy + "!");
 		return new Enemies(enemy, atk, def, hp, artifact);
 	}
 	

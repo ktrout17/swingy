@@ -25,6 +25,7 @@ public class GameGuiView extends JPanel implements GameView {
 	private String[] directions = { "NORTH", "SOUTH", "EAST", "WEST" };
 	private JComboBox<String> directionsComboBox = new JComboBox<>(directions);
 	private JButton moveButton = new JButton("MOVE");
+	private JButton quitButton = new JButton("Quit Game");
 	// private JButton switchButton = new JButton("SWITCH to console");
 
 	private JEditorPane infoPane = new JEditorPane();
@@ -66,6 +67,7 @@ public class GameGuiView extends JPanel implements GameView {
 		// this.add(mapPane, gbc);
 		this.add(directionsComboBox, gbc);
 		this.add(moveButton, gbc);
+		this.add(quitButton, gbc);
 
 		this.setVisible(true);
 		Main.getFrame().setContentPane(this);
@@ -76,6 +78,12 @@ public class GameGuiView extends JPanel implements GameView {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				controller.onMove((String) directionsComboBox.getSelectedItem());
+			}
+		});
+		quitButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.onQuit();
 			}
 		});
 		// switchButton.addActionListener(new ActionListener() {
@@ -157,5 +165,12 @@ public class GameGuiView extends JPanel implements GameView {
     public void switchView() {
     	Main.hideFrame();
     	new GameConsoleView().start();
+	}
+	
+	@Override
+    public void quitGame() {
+    	Main.hideFrame();
+    	Main.getFrame().dispose();
+    	Main.closeConnections();
     }
 }

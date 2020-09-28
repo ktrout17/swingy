@@ -28,6 +28,7 @@ public class SelectHeroGuiView extends JPanel implements SelectHeroView {
 	private JEditorPane infoPane = new JEditorPane();
 	private JButton selectButton = new JButton("Select");
 	private JButton createButton = new JButton("Create");
+	private JButton quitButton = new JButton("Quit Game");
 	
 	private SelectHeroController controller;
 	private int lastSelIndex;
@@ -70,6 +71,7 @@ public class SelectHeroGuiView extends JPanel implements SelectHeroView {
 		
 		this.add(selectButton, gbc);
 		this.add(createButton, gbc);
+		this.add(quitButton, gbc);
 		selectButton.setEnabled(false);
 		
 		this.setVisible(true);
@@ -104,6 +106,12 @@ public class SelectHeroGuiView extends JPanel implements SelectHeroView {
 				controller.onCreate();
 			}
 		});
+		quitButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				controller.onQuit();
+			}
+		});
 	}
 	
 	@Override
@@ -127,4 +135,11 @@ public class SelectHeroGuiView extends JPanel implements SelectHeroView {
 		this.setVisible(false);
 		new CreateHeroGuiView().start();
 	}
+
+	@Override
+    public void quitGame() {
+    	Main.hideFrame();
+    	Main.getFrame().dispose();
+    	Main.closeConnections();
+    }
 }
