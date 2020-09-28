@@ -125,7 +125,7 @@ public class GameGuiView extends JPanel implements GameView {
     }
     
     @Override
-    public void getEnemyCollInput() {
+    public void getCombatInput() {
     	Object options[] = {"fight", "run"};
     	
     	int res = JOptionPane.showOptionDialog(Main.getFrame(), 

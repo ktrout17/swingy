@@ -19,7 +19,7 @@ public class StartGuiView extends JPanel implements StartView {
 		
 	private JButton createHeroButton = new JButton("Create Hero");
 	private JButton selectHeroButton = new JButton("Select Hero");
-	private JButton switchViewButton = new JButton("Switch to console view");
+	// private JButton switchViewButton = new JButton("Switch to console view");
 	
 	private StartController controller;
 	
@@ -31,7 +31,7 @@ public class StartGuiView extends JPanel implements StartView {
 	}
 	
 	private void buildUI() {
-		Main.getFrame().setTitle("Start");
+		Main.getFrame().setTitle("Let's Begin");
 		this.setLayout(new GridBagLayout());
 		this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		
@@ -42,7 +42,7 @@ public class StartGuiView extends JPanel implements StartView {
 		
 		this.add(createHeroButton, gbc);
 		this.add(selectHeroButton, gbc);
-		this.add(switchViewButton, gbc);
+		// this.add(switchViewButton, gbc);
 		
 		this.setVisible(true);
 		Main.getFrame().setContentPane(this);
@@ -61,12 +61,12 @@ public class StartGuiView extends JPanel implements StartView {
 				controller.onSelect();
 			}
 		});
-		switchViewButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				controller.onSwitch();
-			}
-		});
+		// switchViewButton.addActionListener(new ActionListener() {
+		// 	@Override
+		// 	public void actionPerformed(ActionEvent e) {
+		// 		controller.onSwitch();
+		// 	}
+		// });
 	}
 	
 	@Override

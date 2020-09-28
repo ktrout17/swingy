@@ -24,8 +24,8 @@ public class SelectHeroConsoleView implements SelectHeroView {
 		Scanner scanner = Main.getScanner();
 		System.out.println("\nAvailable Heroes: ");
 		printHeroes(controller.getListData());
+		System.out.println("_______________________________________");
 			
-		
 		System.out.println();
 		System.out.println("CREATE - create a new hero");
 		System.out.println("NUMBER - enter the number of previously created heroes to see more info.");
@@ -41,6 +41,8 @@ public class SelectHeroConsoleView implements SelectHeroView {
 			} else if (isValNumStr(input, controller.getListData().length)) {
 				lastIndex = Integer.parseInt(input) - 1;
 				controller.onElementSelected(lastIndex);
+				System.out.println("SELECT - to select this hero.\n");
+				System.out.println("CREATE - to create a new hero.\n");
 			} else if ("select".equalsIgnoreCase(input) && lastIndex != -1) {
 				controller.onSelect(lastIndex);
 				break;
@@ -70,13 +72,15 @@ public class SelectHeroConsoleView implements SelectHeroView {
 			new StartConsoleView().start();
 		}
 		for (String hero : heroes) {
-			System.out.println(hero);
+			System.out.println(hero.toUpperCase());
 		}
 	}
 	
 	@Override 
 	public void updateInfo(String info) {
+		System.out.println("\n**************** HERO'S INFO ****************\n");
 		System.out.println(info);
+		System.out.println("*******************************************\n");
 	}
 	
 	@Override

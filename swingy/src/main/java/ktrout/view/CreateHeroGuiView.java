@@ -64,16 +64,16 @@ public class CreateHeroGuiView extends JPanel implements CreateHeroView {
 		this.add(classPanel, gbc);
 		
 		infoPane.setEditable(false);
-		infoPane.setFont(new Font("Angelique Rose", Font.PLAIN, 12));
-		infoPane.setText(" 				ATTACK	DEFENSE	HP\n" +
-				"FIGHTER		50		50		150\n" + 
-				"NINJA			40		20		100\n" +
-				"WIZARD			35		20		80\n" + 
-				"ARCHER			45		40		80\n" +
-				"BESERKER		50		30		120\n" +
-				"SHADOWKNIGHT	30		20		100\n");
-		infoPane.setPreferredSize(new Dimension(200, 120));
-		infoPane.setMinimumSize(new Dimension(200, 120));
+		infoPane.setFont(new Font("monospaced", Font.PLAIN, 12));
+		infoPane.setText("	ATTACK	DEFENSE	HP\n" +
+				"FIGHTER 50		50	150\n" + 
+				"NINJA 40		20	100\n" +
+				"WIZARD 35		20	80\n" + 
+				"ARCHER 45		40	80\n" +
+				"BESERKER 50		30	120\n" +
+				"SHADOWKNIGHT 30		20	100\n");
+		infoPane.setPreferredSize(new Dimension(300, 250));
+		infoPane.setMinimumSize(new Dimension(300, 250));
 		this.add(infoPane, gbc);
 		
 		this.add(heroCreateButton, gbc);

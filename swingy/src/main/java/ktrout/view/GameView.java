@@ -16,7 +16,7 @@ public interface GameView {
 	
 	void showMsg(String msg);
 	
-	void getEnemyCollInput();
+	void getCombatInput();
 	
 	boolean replaceArtifact(String replaceMsg);
 	

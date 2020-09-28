@@ -8,28 +8,28 @@ public class Enemies extends Character {
 
     public Enemies(String name, int atk, int def, int hp, Artifact artifact) {
         super(name, atk, def, hp);
-        this.hp = hp;
+        // this.hp = hp;
         this.artifact = artifact;
-        this.name = name;
+        // this.name = name;
     }
 
     public Artifact getArtifact() {
         return artifact;
     }
 
-    public void setEnemyHp(int hp) {
-        this.hp = hp;
-    }
+    // public void setEnemyHp(int hp) {
+    //     this.hp = hp;
+    // }
 
-    public int getEnemyHp() {
-        return hp;
-    }
+    // public int getEnemyHp() {
+    //     return hp;
+    // }
 
-    public void setEnemyName(String name) {
-        this.name = name;
-    }
+    // public void setEnemyName(String name) {
+    //     this.name = name;
+    // }
 
-    public String getEnemyName() {
-        return name;
-    }
+    // public String getEnemyName() {
+    //     return name;
+    // }
 }

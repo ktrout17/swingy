@@ -20,6 +20,7 @@ public class SelectHeroController {
 	
 	public void onElementSelected(int index) {
 		CreateHero hero = Database.selectHeroById(index + 1);
+		// System.out.println(hero);
 		view.updateInfo(hero.toString());
 	}
 	

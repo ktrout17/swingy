@@ -90,6 +90,7 @@ public class Game {
 	
 	private void generateMap() {
 		int lvl = hero.getLvl();
+		// map size formula = (level-1)*5+10-(level%2)
 		mapSize = (lvl - 1) * 5 + 10 - (lvl % 2);
 		map = new boolean[mapSize][mapSize];
 	}
@@ -109,7 +110,7 @@ public class Game {
 	
 	public Enemies generateEnemy() {
 		String enemy = enemies.get(randomIntFromInterval(0, 5));
-		this.enemy.setEnemyName(enemy);
+		// this.enemy.setName(enemy);
 		
 		int atk = randomIntFromInterval((hero.getAtk() - 20), (hero.getAtk() + 5 + hero.getLvl()));
 		int def = randomIntFromInterval((hero.getDef() - 20), (hero.getDef() + 5 + hero.getLvl()));
@@ -125,7 +126,7 @@ public class Game {
 		if (hp < 0)
 			hp = -hp;
 
-		System.out.println("Enemy is: " + enemy);
+		System.out.println("\n It appears to be a " + enemy + "!");
 		return new Enemies(enemy, atk, def, hp, artifact);
 	}
 	
@@ -137,11 +138,11 @@ public class Game {
 		
 		if (rand == 1 || rand == 3 || rand == 5 || rand == 7) {
 			if(artifacts.get(0).contains(artifactName)) 
-				artifact = new Weapon(artifactName, randomIntFromInterval(1, 5 * (enemy.getEnemyHp() + 1)));
+				artifact = new Weapon(artifactName, randomIntFromInterval(1, 5 * (generateEnemy().getHp() + 1)));
 			else if (artifacts.get(1).contains(artifactName))
-				artifact = new Helm(artifactName, randomIntFromInterval(1, 3 * (enemy.getEnemyHp() + 1)));
+				artifact = new Helm(artifactName, randomIntFromInterval(1, 3 * (generateEnemy().getHp() + 1)));
 			else 
-				artifact = new Armor(artifactName, randomIntFromInterval(1, 4 * (enemy.getEnemyHp() + 1)));
+				artifact = new Armor(artifactName, randomIntFromInterval(1, 4 * (generateEnemy().getHp() + 1)));
 		}
 		// System.out.println("Artifact: " + artifact);
 		return artifact;
@@ -149,7 +150,7 @@ public class Game {
 	
 	public int fightRes(Character enemy) {
 		int exp = enemy.getAtk() + enemy.getDef() + enemy.getHp();
-		int rand = (int)Math.random() * 100;
+		int rand = randomIntFromInterval(0, 100);
 		
 		if (rand < 3)
 			return exp;
@@ -173,6 +174,10 @@ public class Game {
 	
 	public int getMapSize() {
 		return mapSize;
+	}
+
+	public Enemies getEnemy() {
+		return enemy;
 	}
 	
 	public CreateHero getHero() {

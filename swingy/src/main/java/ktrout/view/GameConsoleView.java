@@ -11,7 +11,7 @@ import ktrout.util.MapPoints;
 public class GameConsoleView implements GameView {
 
 	private GameController controller;
-	private Enemies enemy;
+	// private Game game;
 	
 	@Override
 	public void start() {
@@ -21,11 +21,11 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void update(Game game) {
-		System.out.println("\n**************** YOUR INFO ****************");
-		System.out.println(game.getHero().printInfo() + 
+		System.out.println("\n**************** YOUR INFO ****************\n");
+		System.out.println(game.getHero().toString() + 
 				"Position:	" + "(" + game.getHeroCoords().getX() +
 				"," + game.getHeroCoords().getY() + ")");
-		System.out.println("*******************************************\n");
+		System.out.println("\n*******************************************\n");
 		
 		getUserInput();
 	}
@@ -36,9 +36,9 @@ public class GameConsoleView implements GameView {
 		System.out.println("Where would you like to move?");
 		System.out.println("\nThese are your choices:");
 		System.out.println("NORTH, SOUTH, EAST, WEST");
-		System.out.println("\nIf you would like to switch to GUI:\nSWITCH");
+		// System.out.println("\nIf you would like to switch to GUI:\nSWITCH");
 		System.out.println("\nAvailable commands: ");
-		System.out.println("NORTH, SOUTH, EAST, WEST, SWITCH");
+		System.out.println("NORTH, SOUTH, EAST, WEST");
 		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
@@ -52,13 +52,13 @@ public class GameConsoleView implements GameView {
 					"west".equalsIgnoreCase(input)) {
 				controller.onMove(input);
 				break;
-			} else if ("switch".equalsIgnoreCase(input)) {
-				controller.onSwitch();
-				break;
+			// } else if ("switch".equalsIgnoreCase(input)) {
+			// 	controller.onSwitch();
+			// 	break;
 			} else {
 				System.out.println("Unknown command.");
 				System.out.println("Please choose one of the vailable commands: ");
-				System.out.println("NORTH, SOUTH, EAST, WEST, SWITCH");
+				System.out.println("NORTH, SOUTH, EAST, WEST");
 				System.out.println("_______________________________________\n");
 			}
 		}
@@ -66,16 +66,16 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void printMap(boolean[][] map, MapPoints heroCoords) {
-		System.out.printf("MAP %dx%d", map.length, map.length);
-		System.out.println();
-		for (int i = 0; i < map[i].length; i++) {
+		System.out.printf("\nMAP %dx%d", map.length, map.length);
+		System.out.println("\n");
+		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map[i].length; j++) {
 				if (heroCoords.getX() == j && heroCoords.getY() == i)
-					System.out.println("H ");
+					System.out.print("H ");
 				else if (map[i][j])
-					System.out.println("* ");
+					System.out.print("* ");
 				else
-					System.out.println(". ");
+					System.out.print(". ");
 			}
 			System.out.println();
 		}
@@ -83,7 +83,7 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void gameDone() {
-		System.out.println("Good bye.");
+		System.out.println("\nSee you next time!");
 		Main.getFrame().dispose();
 		Main.closeConnections();
 	}
@@ -94,12 +94,12 @@ public class GameConsoleView implements GameView {
 	}
 	
 	@Override
-	public void getEnemyCollInput() {
+	public void getCombatInput() {
 		// System.out.println("Enemy is: " + enemy.getName());
 		Scanner scanner = Main.getScanner();
 		
 		System.out.println();
-		System.out.println("A " + enemy.getEnemyName() + "has blocked your path!");
+		System.out.println("Something has blocked your path!");
 		System.out.println("\nWhat would you like to do?");
 		System.out.println("\nFIGHT - enter combat with the enemy");
 		System.out.println("RUN - you will have a 50% chance to move back to your previous position.");

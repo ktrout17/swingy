@@ -22,9 +22,9 @@ public class StartConsoleView implements StartView {
 
 		System.out.println("\nCREATE - create a new hero");
 		System.out.println("SELECT - select a previously created hero");
-		System.out.println("SWITCH - switch to GUI view");
+		// System.out.println("SWITCH - switch to GUI view");
 		System.out.println("\nAvailable Commands:");
-		System.out.println("CREATE, SELECT, SWITCH");
+		System.out.println("CREATE, SELECT");
 		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
@@ -40,7 +40,7 @@ public class StartConsoleView implements StartView {
 			} else {
 				System.out.println("\nUnknown Command.");
 				System.out.println("Available Commands:");
-				System.out.println("CREATE, SELECT, SWITCH");
+				System.out.println("CREATE, SELECT");
 				System.out.println("_______________________________________\n");
 			}
 		}

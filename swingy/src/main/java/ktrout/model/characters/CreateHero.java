@@ -165,8 +165,8 @@ public class CreateHero extends Character {
 		return heroClass;
 	}
 	
-	// @Override
-	public String printInfo() {
+	@Override
+	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append("NAME:		").append(name.toUpperCase()).append("\n");
 		stringBuilder.append("CLASS:		").append(heroClass).append("\n");

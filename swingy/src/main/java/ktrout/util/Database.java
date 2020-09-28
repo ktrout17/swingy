@@ -72,7 +72,8 @@ public class Database {
     	CreateHero hero = null;
     	
     	try (PreparedStatement stmt = getConnection().prepareStatement(query)) {
-    		ResultSet resultSet = stmt.executeQuery();
+			stmt.setInt(1, id);
+			ResultSet resultSet = stmt.executeQuery();
     		if (resultSet.next()) {
     			HeroCreator creator = new HeroCreator();
     			creator.setId(resultSet.getInt("id"));

@@ -71,7 +71,7 @@ public class GameController {
 	}
 	
 	private void winGame() {
-		view.showMsg("Hey, you won! You get additional " + game.getMapSize() * 100 + " exp!");
+		view.showMsg("\nHey, you reached the end of the map and won this round! You get additional " + game.getMapSize() * 100 + " exp!");
 		addExp(game.getMapSize() * 100);
 		updateDb();
 		view.gameDone();
@@ -83,7 +83,7 @@ public class GameController {
 	}
 
 	private void enemyCollision() {
-		view.getEnemyCollInput();
+		view.getCombatInput();
 	}
 	
 	public void onRun() {
@@ -136,8 +136,8 @@ public class GameController {
 	private void addExp(int addExp) {
 		int lvl = game.getHero().getLvl();
 		game.getHero().addExp(addExp);
-		if (lvl != game.getHero().getLvl())
-			view.showMsg("You Leveled UP!\nATTACK, DEFENSE and HP have increased.");
+		if (lvl != game.getHero().getLvl()) 
+			view.showMsg("\nYou Leveled UP! You are now level " + game.getHero().getLvl() + ".\nATTACK, DEFENSE and HP have increased.");
 	}
 	
 	public void onSwitch() {
