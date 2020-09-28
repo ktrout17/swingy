@@ -1,11 +1,13 @@
 package ktrout.model.artifacts;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Min;
 
 public abstract class Artifact {
 	
-	@Min(value = 1)
+	@NotNull(message = "Name cannot be null.")
 	private String name;
+	@Min(value = 0, message = "Points cannot be less than zero.")
 	private int points;
 	
 	

@@ -6,6 +6,7 @@ import ktrout.Main;
 import ktrout.controller.SelectHeroController;
 import ktrout.view.CreateHeroConsoleView;
 import ktrout.view.GameConsoleView;
+import ktrout.view.StartConsoleView;
 
 public class SelectHeroConsoleView implements SelectHeroView {
 	
@@ -21,15 +22,17 @@ public class SelectHeroConsoleView implements SelectHeroView {
 	
 	private void getInput() {
 		Scanner scanner = Main.getScanner();
-		System.out.println("Available Heroes: ");
+		System.out.println("\nAvailable Heroes: ");
 		printHeroes(controller.getListData());
+			
 		
 		System.out.println();
 		System.out.println("CREATE - create a new hero");
 		System.out.println("NUMBER - enter the number of previously created heroes to see more info.");
 		System.out.println("SELECT - to select hero after choosing previously created hero.");
-		System.out.println("Available Commands:");
+		System.out.println("\nAvailable Commands:");
 		System.out.println("CREATE, NUMBER, SELECT");
+		System.out.println("_______________________________________/n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			if ("create".equalsIgnoreCase(input)) {
@@ -45,6 +48,7 @@ public class SelectHeroConsoleView implements SelectHeroView {
 				System.out.println("Unknown Command.");
 				System.out.println("Available Commands:");
 				System.out.println("CREATE, NUMBER, SELECT");
+				System.out.println("_______________________________________/n");
 			}
 		}
 	}
@@ -61,8 +65,10 @@ public class SelectHeroConsoleView implements SelectHeroView {
 	}
 	
 	private void printHeroes(String[] heroes) {
-		if (heroes.length == 0)
-			System.out.println("No previously saved heroes.\n");
+		if (heroes.length == 0) {
+			System.out.println("No previously saved heroes.");
+			new StartConsoleView().start();
+		}
 		for (String hero : heroes) {
 			System.out.println(hero);
 		}

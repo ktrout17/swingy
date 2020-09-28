@@ -5,11 +5,13 @@ import java.util.Scanner;
 import ktrout.Main;
 import ktrout.controller.GameController;
 import ktrout.model.Game;
+import ktrout.model.characters.Enemies;
 import ktrout.util.MapPoints;
 
 public class GameConsoleView implements GameView {
 
 	private GameController controller;
+	private Enemies enemy;
 	
 	@Override
 	public void start() {
@@ -19,11 +21,11 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void update(Game game) {
-		System.out.println("**************** YOUR INFO ****************");
+		System.out.println("\n**************** YOUR INFO ****************");
 		System.out.println(game.getHero().printInfo() + 
 				"Position:	" + "(" + game.getHeroCoords().getX() +
 				"," + game.getHeroCoords().getY() + ")");
-		System.out.println("*******************************************");
+		System.out.println("*******************************************\n");
 		
 		getUserInput();
 	}
@@ -32,11 +34,12 @@ public class GameConsoleView implements GameView {
 		Scanner scanner = Main.getScanner();
 		
 		System.out.println("Where would you like to move?");
-		System.out.println("These are your choices:");
+		System.out.println("\nThese are your choices:");
 		System.out.println("NORTH, SOUTH, EAST, WEST");
-		System.out.println("If you would like to switch to GUI:\nSWITCH");
-		System.out.println("Available commands: ");
+		System.out.println("\nIf you would like to switch to GUI:\nSWITCH");
+		System.out.println("\nAvailable commands: ");
 		System.out.println("NORTH, SOUTH, EAST, WEST, SWITCH");
+		System.out.println("_______________________________________/n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			
@@ -56,6 +59,7 @@ public class GameConsoleView implements GameView {
 				System.out.println("Unknown command.");
 				System.out.println("Please choose one of the vailable commands: ");
 				System.out.println("NORTH, SOUTH, EAST, WEST, SWITCH");
+				System.out.println("_______________________________________/n");
 			}
 		}
 	}
@@ -94,12 +98,13 @@ public class GameConsoleView implements GameView {
 		Scanner scanner = Main.getScanner();
 		
 		System.out.println();
-		System.out.println("You've encountered an enemy.");
-		System.out.println("What would you like to do?");
+		System.out.println("A " + enemy.getEnemyName() + "has blocked your path!");
+		System.out.println("\nWhat would you like to do?");
 		System.out.println("\nFIGHT - enter combat with the enemy");
 		System.out.println("RUN - you will have a 50% chance to move back to your previous position.");
 		System.out.println("\nAvailable commands:");
 		System.out.println("FIGHT, RUN");
+		System.out.println("_______________________________________/n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			
@@ -113,6 +118,7 @@ public class GameConsoleView implements GameView {
 				System.out.println("Unknown command.");
 				System.out.println("Please choose one of the vailable commands: ");
 				System.out.println("FIGHT, RUN");
+				System.out.println("_______________________________________/n");
 			}
 		}
 	}
@@ -125,8 +131,9 @@ public class GameConsoleView implements GameView {
 		System.out.println("Would you like to replace your current " + replaceMsg + "?");
 		System.out.println("DROP - drop current artifact");
 		System.out.println("REPLACE - replace current artifact");
-		System.out.println("Available commands:");
+		System.out.println("\nAvailable commands:");
 		System.out.println("DROP, REPLACE");
+		System.out.println("_______________________________________/n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			
@@ -138,6 +145,7 @@ public class GameConsoleView implements GameView {
 				System.out.println("Unknown command.");
 				System.out.println("Please choose one of the vailable commands: ");
 				System.out.println("DROP, REPLACE");
+				System.out.println("_______________________________________/n");
 			}
 		}
 		return false;

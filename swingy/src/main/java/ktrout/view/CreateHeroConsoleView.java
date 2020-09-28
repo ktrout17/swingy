@@ -33,19 +33,21 @@ public class CreateHeroConsoleView implements CreateHeroView {
 				"\nChoose a class: ");
 		String heroClass = scanner.nextLine();
 		
-		System.out.println("\nYou've chosen to be a " + heroClass.toUpperCase() + " and your name is " + name + ".");
-		System.out.println("\nCREATE - finalize your hero creation.");
+		System.out.println("\nYou've chosen to be a " + heroClass.toUpperCase() + " and your name is " + name.toUpperCase() + ".");
+		System.out.println("\nFINALIZE - finalize your hero creation.");
 		System.out.println("\nAvailable commands:");
-		System.out.println("CREATE");
+		System.out.println("FINALIZE");
+		System.out.println("_______________________________________/n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
-			if ("create".equalsIgnoreCase(input)) {
+			if ("finalize".equalsIgnoreCase(input)) {
 				controller.onCreate(name, heroClass.toUpperCase());
 				break;
 			} else {
 				System.out.println("Unknown command.");
 				System.out.println("Available commands:");
-				System.out.println("CREATE");
+				System.out.println("FINALIZE");
+				System.out.println("_______________________________________/n");
 			}
 		}
 	}

@@ -90,14 +90,14 @@ public class CreateHero extends Character {
 	public void equipArmor(Armor armor) {
 		if (this.armor != null)
 			this.def = this.def - this.armor.getPoints();
-		this.def = this.def + this.armor.getPoints();
+		this.def = this.def + armor.getPoints();
 		this.armor = armor;
 	}
 	
 	public void equipWeap(Weapon weap) {
 		if (this.weap != null)
 			this.atk = this.atk - this.weap.getPoints();
-		this.atk = this.atk + this.weap.getPoints();
+		this.atk = this.atk + weap.getPoints();
 		this.weap = weap;
 	}
 	
@@ -168,7 +168,7 @@ public class CreateHero extends Character {
 	// @Override
 	public String printInfo() {
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("NAME:		").append(name).append("\n");
+		stringBuilder.append("NAME:		").append(name.toUpperCase()).append("\n");
 		stringBuilder.append("CLASS:		").append(heroClass).append("\n");
 		stringBuilder.append("LEVEL:		").append(lvl).append("\n");
 		stringBuilder.append("EXP:		").append(exp).append("\n");
@@ -184,13 +184,13 @@ public class CreateHero extends Character {
 		
 		stringBuilder.append("HELM:		");
 		if (helm != null)
-			stringBuilder.append(helm.getName()).append(" (HP +").append(weap.getPoints()).append(")\n");
+			stringBuilder.append(helm.getName()).append(" (HP +").append(helm.getPoints()).append(")\n");
 		else
 			stringBuilder.append("no helmet equipped\n");
 	
 		stringBuilder.append("ARMOR:		");
 		if (armor != null)
-			stringBuilder.append(armor.getName()).append(" (def +").append(weap.getPoints()).append(")\n");
+			stringBuilder.append(armor.getName()).append(" (def +").append(armor.getPoints()).append(")\n");
 		else
 			stringBuilder.append("no armor equipped\n");
 	

@@ -87,7 +87,7 @@ public class GameController {
 	
 	public void onRun() {
 		if (new Random().nextBoolean()) {
-			view.showMsg("Lucky you! You got away and moved back to your previous position.");
+			view.showMsg("\nLucky you! You got away and moved back to your previous position.");
 			game.getHeroCoords().setX(prevPos.getX());
 			game.getHeroCoords().setY(prevPos.getY());
 		} else {
@@ -122,9 +122,10 @@ public class GameController {
 		int exp = game.fightRes(enemy);
 		
 		if (exp >= 0) {
-			view.showMsg("You won the fight! You gained " + exp + "exp.");
+			view.showMsg("\nYou won the fight! You gained " + exp + " exp.");
 			addExp(exp);
 			game.getMap()[game.getHeroCoords().getY()][game.getHeroCoords().getX()] = false;
+			setArtifact(enemy.getArtifact());
 		} else {
 			view.showMsg("You died, Game Over.");
 			view.gameDone();

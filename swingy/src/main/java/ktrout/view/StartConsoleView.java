@@ -15,7 +15,7 @@ public class StartConsoleView implements StartView {
 	@Override
 	public void start() {
 		controller = new StartController(this);
-		System.out.println("Welcome to Swingy (console view)");
+		System.out.println("\nWelcome to Swingy (console view)");
 		System.out.println("Let's begin.");
 		
 		Scanner scanner = Main.getScanner();
@@ -24,7 +24,8 @@ public class StartConsoleView implements StartView {
 		System.out.println("SELECT - select a previously created hero");
 		System.out.println("SWITCH - switch to GUI view");
 		System.out.println("\nAvailable Commands:");
-		System.out.println("CREATE, SELECT, SWITCH\n");
+		System.out.println("CREATE, SELECT, SWITCH");
+		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			if ("create".equalsIgnoreCase(input)) {
@@ -40,6 +41,7 @@ public class StartConsoleView implements StartView {
 				System.out.println("\nUnknown Command.");
 				System.out.println("Available Commands:");
 				System.out.println("CREATE, SELECT, SWITCH");
+				System.out.println("_______________________________________\n");
 			}
 		}
 	}

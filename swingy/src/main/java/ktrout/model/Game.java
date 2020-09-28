@@ -19,6 +19,7 @@ public class Game {
 	private static Game instance = null;
 	
 	private CreateHero hero;
+	private Enemies enemy;
 	private MapPoints heroCoords;
 	private int mapSize;
 	private boolean[][] map;
@@ -46,7 +47,7 @@ public class Game {
 	
 	ArrayList<String> helms = new ArrayList<String>(Arrays.asList(
 			"MYRMIC HELM",
-			"DIY HEML",
+			"DIY HELM",
 			"WELDING HELM",
 			"SPECIAL FORCES HELM",
 			"SSH-68",
@@ -107,7 +108,7 @@ public class Game {
 	}
 	
 	public Enemies generateEnemy() {
-		String enemy = enemies.get((int)Math.random() * 5);
+		String enemy = enemies.get(randomIntFromInterval(0, 5));
 		
 		int atk = randomIntFromInterval((hero.getAtk() - 20), (hero.getAtk() + 5 + hero.getLvl()));
 		int def = randomIntFromInterval((hero.getDef() - 20), (hero.getDef() + 5 + hero.getLvl()));
@@ -123,19 +124,25 @@ public class Game {
 		if (hp < 0)
 			hp = -hp;
 
+		System.out.println("Enemy is: " + enemy);
 		return new Enemies(enemy, atk, def, hp, artifact);
 	}
 	
 	private Artifact generateArtifact() {
-		String artifactName = artifacts.get((int)Math.random() * 2).get((int)Math.random() * 6);
+		int rand = randomIntFromInterval(0, 10);
+		String artifactName = artifacts.get(randomIntFromInterval(0, 2)).get(randomIntFromInterval(0, 6));
+		// System.out.println("Artifact is: " + artifactName);
 		Artifact artifact = null;
 		
-		if(artifacts.get(0).contains(artifactName))
-			artifact = new Weapon(artifactName, artifact.getPoints());
-		else if (artifacts.get(1).contains(artifactName))
-			artifact = new Helm(artifactName, artifact.getPoints());
-		else 
-			artifact = new Armor(artifactName, artifact.getPoints());
+		if (rand == 1 || rand == 3 || rand == 5 || rand == 7) {
+			if(artifacts.get(0).contains(artifactName)) 
+				artifact = new Weapon(artifactName, randomIntFromInterval(1, 5 * (enemy.getEnemyHp() + 1)));
+			else if (artifacts.get(1).contains(artifactName))
+				artifact = new Helm(artifactName, randomIntFromInterval(1, 3 * (enemy.getEnemyHp() + 1)));
+			else 
+				artifact = new Armor(artifactName, randomIntFromInterval(1, 4 * (enemy.getEnemyHp() + 1)));
+		}
+		// System.out.println("Artifact: " + artifact);
 		return artifact;
 	}
 	
