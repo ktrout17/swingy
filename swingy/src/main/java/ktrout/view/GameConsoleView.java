@@ -39,7 +39,7 @@ public class GameConsoleView implements GameView {
 		System.out.println("\nIf you would like to switch to GUI:\nSWITCH");
 		System.out.println("\nAvailable commands: ");
 		System.out.println("NORTH, SOUTH, EAST, WEST, SWITCH");
-		System.out.println("_______________________________________/n");
+		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			
@@ -59,7 +59,7 @@ public class GameConsoleView implements GameView {
 				System.out.println("Unknown command.");
 				System.out.println("Please choose one of the vailable commands: ");
 				System.out.println("NORTH, SOUTH, EAST, WEST, SWITCH");
-				System.out.println("_______________________________________/n");
+				System.out.println("_______________________________________\n");
 			}
 		}
 	}
@@ -95,6 +95,7 @@ public class GameConsoleView implements GameView {
 	
 	@Override
 	public void getEnemyCollInput() {
+		// System.out.println("Enemy is: " + enemy.getName());
 		Scanner scanner = Main.getScanner();
 		
 		System.out.println();
@@ -104,7 +105,7 @@ public class GameConsoleView implements GameView {
 		System.out.println("RUN - you will have a 50% chance to move back to your previous position.");
 		System.out.println("\nAvailable commands:");
 		System.out.println("FIGHT, RUN");
-		System.out.println("_______________________________________/n");
+		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			
@@ -118,7 +119,7 @@ public class GameConsoleView implements GameView {
 				System.out.println("Unknown command.");
 				System.out.println("Please choose one of the vailable commands: ");
 				System.out.println("FIGHT, RUN");
-				System.out.println("_______________________________________/n");
+				System.out.println("_______________________________________\n");
 			}
 		}
 	}
@@ -133,7 +134,7 @@ public class GameConsoleView implements GameView {
 		System.out.println("REPLACE - replace current artifact");
 		System.out.println("\nAvailable commands:");
 		System.out.println("DROP, REPLACE");
-		System.out.println("_______________________________________/n");
+		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			
@@ -145,7 +146,7 @@ public class GameConsoleView implements GameView {
 				System.out.println("Unknown command.");
 				System.out.println("Please choose one of the vailable commands: ");
 				System.out.println("DROP, REPLACE");
-				System.out.println("_______________________________________/n");
+				System.out.println("_______________________________________\n");
 			}
 		}
 		return false;

@@ -32,7 +32,7 @@ public class SelectHeroConsoleView implements SelectHeroView {
 		System.out.println("SELECT - to select hero after choosing previously created hero.");
 		System.out.println("\nAvailable Commands:");
 		System.out.println("CREATE, NUMBER, SELECT");
-		System.out.println("_______________________________________/n");
+		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			if ("create".equalsIgnoreCase(input)) {
@@ -48,7 +48,7 @@ public class SelectHeroConsoleView implements SelectHeroView {
 				System.out.println("Unknown Command.");
 				System.out.println("Available Commands:");
 				System.out.println("CREATE, NUMBER, SELECT");
-				System.out.println("_______________________________________/n");
+				System.out.println("_______________________________________\n");
 			}
 		}
 	}

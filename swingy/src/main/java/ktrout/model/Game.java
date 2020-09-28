@@ -100,7 +100,7 @@ public class Game {
 		
 		for (int i = 0; i < mapSize; i++) {
 			for (int j = 0; j < mapSize; j++) {
-				rand = ((int)Math.random() * 101);
+				rand = randomIntFromInterval(0, 101);
 				if ((lvl + 1) * 10 >= rand)
 					map[i][j] = true;
 			}
@@ -109,6 +109,7 @@ public class Game {
 	
 	public Enemies generateEnemy() {
 		String enemy = enemies.get(randomIntFromInterval(0, 5));
+		this.enemy.setEnemyName(enemy);
 		
 		int atk = randomIntFromInterval((hero.getAtk() - 20), (hero.getAtk() + 5 + hero.getLvl()));
 		int def = randomIntFromInterval((hero.getDef() - 20), (hero.getDef() + 5 + hero.getLvl()));

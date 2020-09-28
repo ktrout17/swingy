@@ -37,7 +37,7 @@ public class CreateHeroConsoleView implements CreateHeroView {
 		System.out.println("\nFINALIZE - finalize your hero creation.");
 		System.out.println("\nAvailable commands:");
 		System.out.println("FINALIZE");
-		System.out.println("_______________________________________/n");
+		System.out.println("_______________________________________\n");
 		while (scanner.hasNext()) {
 			String input = scanner.nextLine();
 			if ("finalize".equalsIgnoreCase(input)) {
@@ -47,7 +47,7 @@ public class CreateHeroConsoleView implements CreateHeroView {
 				System.out.println("Unknown command.");
 				System.out.println("Available commands:");
 				System.out.println("FINALIZE");
-				System.out.println("_______________________________________/n");
+				System.out.println("_______________________________________\n");
 			}
 		}
 	}

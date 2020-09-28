@@ -17,8 +17,16 @@ public class Enemies extends Character {
         return artifact;
     }
 
+    public void setEnemyHp(int hp) {
+        this.hp = hp;
+    }
+
     public int getEnemyHp() {
         return hp;
+    }
+
+    public void setEnemyName(String name) {
+        this.name = name;
     }
 
     public String getEnemyName() {
