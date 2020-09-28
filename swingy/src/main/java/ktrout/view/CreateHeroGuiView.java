@@ -26,7 +26,7 @@ public class CreateHeroGuiView extends JPanel implements CreateHeroView {
 	private JLabel heroNameLabel = new JLabel("Hero name:");
 	private JTextField heroNameField = new JTextField(10);
 	private JButton heroCreateButton = new JButton("Create Hero");
-	private String[] heroClasses = {"FIGHTER", "NINJA", "WIZARD", "ARCHER", "BESERKER", "SHADOWKNIGHT"};
+	private String[] heroClasses = {"FIGHTER", "NINJA", "WIZARD", "ARCHER", "BESERKER", "SHADOW KNIGHT"};
 	private JLabel heroClassLabel = new JLabel("Class:");
 	private JComboBox<String> classesComboBox = new JComboBox<>(heroClasses);
 	private JEditorPane infoPane = new JEditorPane();
@@ -65,15 +65,15 @@ public class CreateHeroGuiView extends JPanel implements CreateHeroView {
 		
 		infoPane.setEditable(false);
 		infoPane.setFont(new Font("monospaced", Font.PLAIN, 12));
-		infoPane.setText("	ATTACK	DEFENSE	HP\n" +
-				"FIGHTER 50		50	150\n" + 
-				"NINJA 40		20	100\n" +
-				"WIZARD 35		20	80\n" + 
-				"ARCHER 45		40	80\n" +
-				"BESERKER 50		30	120\n" +
-				"SHADOWKNIGHT 30		20	100\n");
-		infoPane.setPreferredSize(new Dimension(300, 250));
-		infoPane.setMinimumSize(new Dimension(300, 250));
+		infoPane.setText("	     ATT DEF  HP\n" +
+				"FIGHTER      50  50  150\n" + 
+				"NINJA        40  20  100\n" +
+				"WIZARD       35  20  80\n" + 
+				"ARCHER       45  40  80\n" +
+				"BESERKER     50  30  120\n" +
+				"SHADOW KNIGHT30  20  100\n");
+		infoPane.setPreferredSize(new Dimension(200, 150));
+		infoPane.setMinimumSize(new Dimension(200, 150));
 		this.add(infoPane, gbc);
 		
 		this.add(heroCreateButton, gbc);

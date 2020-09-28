@@ -25,7 +25,7 @@ public class GameGuiView extends JPanel implements GameView {
 	private String[] directions = { "NORTH", "SOUTH", "EAST", "WEST" };
 	private JComboBox<String> directionsComboBox = new JComboBox<>(directions);
 	private JButton moveButton = new JButton("MOVE");
-	private JButton switchButton = new JButton("SWITCH to console");
+	// private JButton switchButton = new JButton("SWITCH to console");
 
 	private JEditorPane infoPane = new JEditorPane();
 	private JEditorPane mapPane = new JEditorPane();
@@ -51,21 +51,21 @@ public class GameGuiView extends JPanel implements GameView {
 
 		infoPane.setEditable(false);
 		infoPane.setText("Select a hero to see their info");
-		infoPane.setPreferredSize(new Dimension(220, 190));
-		infoPane.setMinimumSize(new Dimension(200, 200));
+		infoPane.setPreferredSize(new Dimension(220, 250));
+		infoPane.setMinimumSize(new Dimension(200, 250));
 		this.add(infoPane, gbc);
 		gbc.insets = new Insets(5, 5, 5, 5);
-
+		
 		mapPane.setEditable(false);
 		mapPane.setText("Map");
 		JScrollPane mapScroll = new JScrollPane(mapPane);
 		mapScroll.setPreferredSize(new Dimension(300, 300));
 		mapScroll.setMinimumSize(new Dimension(200, 200));
-
+		
 		directionsComboBox.setSelectedIndex(0);
+		// this.add(mapPane, gbc);
 		this.add(directionsComboBox, gbc);
 		this.add(moveButton, gbc);
-		this.add(switchButton, gbc);
 
 		this.setVisible(true);
 		Main.getFrame().setContentPane(this);
@@ -78,12 +78,12 @@ public class GameGuiView extends JPanel implements GameView {
 				controller.onMove((String) directionsComboBox.getSelectedItem());
 			}
 		});
-		switchButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				controller.onSwitch();
-			}
-		});
+		// switchButton.addActionListener(new ActionListener() {
+		// 	@Override
+		// 	public void actionPerformed(ActionEvent e) {
+		// 		controller.onSwitch();
+		// 	}
+		// });
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class GameGuiView extends JPanel implements GameView {
 	    for (int i = 0; i < map.length; i++) {
 	        for (int j = 0; j < map[i].length; j++) {
 	            if (heroCoords.getX() == j && heroCoords.getY() == i)
-	                stringBuilder.append("! ");
+	                stringBuilder.append("H ");
 	            else if (map[i][j])
 	                stringBuilder.append("* ");
 	            else
@@ -107,7 +107,7 @@ public class GameGuiView extends JPanel implements GameView {
     @Override
     public void update(Game game) {
 	    infoPane.setText(game.getHero().toString() +
-            "Position: " + game.getHeroCoords().getX() +
+            "Position: (" + game.getHeroCoords().getX() +
             "," + game.getHeroCoords().getY() + ")");
 	    printMap(game.getMap(), game.getHeroCoords());
     }
@@ -126,11 +126,11 @@ public class GameGuiView extends JPanel implements GameView {
     
     @Override
     public void getCombatInput() {
-    	Object options[] = {"fight", "run"};
+    	Object options[] = {"FIGHT", "RUN"};
     	
     	int res = JOptionPane.showOptionDialog(Main.getFrame(), 
     			"You ran into an enemy.", 
-    			"Fight or run?", 
+				"Fight or run?", 
     			JOptionPane.YES_NO_OPTION, 
     			JOptionPane.QUESTION_MESSAGE, null, 
     			options, options[0]);

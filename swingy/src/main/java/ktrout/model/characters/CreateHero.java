@@ -168,27 +168,27 @@ public class CreateHero extends Character {
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append("NAME:		").append(name.toUpperCase()).append("\n");
-		stringBuilder.append("CLASS:		").append(heroClass).append("\n");
-		stringBuilder.append("LEVEL:		").append(lvl).append("\n");
-		stringBuilder.append("EXP:		").append(exp).append("\n");
-		stringBuilder.append("ATT:		").append(atk).append("\n");
-		stringBuilder.append("DEF:		").append(def).append("\n");
-		stringBuilder.append("HP:		").append(hp).append("\n");
+		stringBuilder.append("NAME: ").append(name.toUpperCase()).append("\n");
+		stringBuilder.append("CLASS: ").append(heroClass).append("\n");
+		stringBuilder.append("LEVEL: ").append(lvl).append("\n");
+		stringBuilder.append("EXP: ").append(exp).append("\n");
+		stringBuilder.append("ATT: ").append(atk).append("\n");
+		stringBuilder.append("DEF: ").append(def).append("\n");
+		stringBuilder.append("HP: ").append(hp).append("\n");
 		
-		stringBuilder.append("WEAPON:		");
+		stringBuilder.append("WEAPON: ");
 		if (weap != null)
 			stringBuilder.append(weap.getName()).append(" (att +").append(weap.getPoints()).append(")\n");
 		else
 			stringBuilder.append("no weapon equipped\n");
 		
-		stringBuilder.append("HELM:		");
+		stringBuilder.append("HELM: ");
 		if (helm != null)
 			stringBuilder.append(helm.getName()).append(" (HP +").append(helm.getPoints()).append(")\n");
 		else
 			stringBuilder.append("no helmet equipped\n");
 	
-		stringBuilder.append("ARMOR:		");
+		stringBuilder.append("ARMOR: ");
 		if (armor != null)
 			stringBuilder.append(armor.getName()).append(" (def +").append(armor.getPoints()).append(")\n");
 		else

@@ -138,11 +138,11 @@ public class Game {
 		
 		if (rand == 1 || rand == 3 || rand == 5 || rand == 7) {
 			if(artifacts.get(0).contains(artifactName)) 
-				artifact = new Weapon(artifactName, randomIntFromInterval(1, 5 * (generateEnemy().getHp() + 1)));
+				artifact = new Weapon(artifactName, randomIntFromInterval(1, (generateEnemy().getHp() + 1)));
 			else if (artifacts.get(1).contains(artifactName))
-				artifact = new Helm(artifactName, randomIntFromInterval(1, 3 * (generateEnemy().getHp() + 1)));
+				artifact = new Helm(artifactName, randomIntFromInterval(1, (generateEnemy().getHp() + 1)));
 			else 
-				artifact = new Armor(artifactName, randomIntFromInterval(1, 4 * (generateEnemy().getHp() + 1)));
+				artifact = new Armor(artifactName, randomIntFromInterval(1, (generateEnemy().getHp() + 1)));
 		}
 		// System.out.println("Artifact: " + artifact);
 		return artifact;
