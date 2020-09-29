@@ -59,9 +59,9 @@ public class Main {
     }
     
     public static void closeConnections() {
+		if (scanner != null)
+			scanner.close();
     	Database.close();
-    	if (scanner != null)
-    		scanner.close();
     }
     
     private static void frameListener() {

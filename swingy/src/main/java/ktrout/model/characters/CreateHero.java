@@ -103,7 +103,7 @@ public class CreateHero extends Character {
 	
 	// exp formula = level*1000+(level−1)2*450
 	public void addExp(int addExp) {
-		int nextLvl = lvl * 1000 + (lvl - 1) * (lvl - 1) * 450;
+		int nextLvl = (lvl + 1) * 1000 + lvl * lvl * 450;
 		
 		if (exp + addExp >= nextLvl)
 			levelUp();

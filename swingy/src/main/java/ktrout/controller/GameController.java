@@ -148,6 +148,7 @@ public class GameController {
 	}
 
 	public void onQuit() {
+		updateDb();
 		view.quitGame();
 	}
 	
