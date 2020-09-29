@@ -7,7 +7,9 @@
     <groupId>ktrout</groupId>
     <artifactId>swingy</artifactId>
     <version>1.0</version>
-
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>javax.validation</groupId>
@@ -15,12 +17,12 @@
             <version>2.0.1.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator-annotation-processor</artifactId>
             <version>6.0.10.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.10.Final</version>
         </dependency>

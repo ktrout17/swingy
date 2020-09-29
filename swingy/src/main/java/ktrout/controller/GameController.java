@@ -121,14 +121,16 @@ public class GameController {
 	public void onFight() {
 		Enemies enemy = game.generateEnemy();
 		int exp = game.fightRes(enemy);
-		
+		String enemyName = game.generateEnemy().getName();
+		view.showMsg("\nIt's a " + enemyName + "!");
+
 		if (exp >= 0) {
-			view.showMsg("\nYou won the fight! You gained " + exp + " exp.");
+			view.showMsg("\nYou defeated the "+ enemyName + "! You gained " + exp + " exp.");
 			addExp(exp);
 			game.getMap()[game.getHeroCoords().getY()][game.getHeroCoords().getX()] = false;
 			setArtifact(enemy.getArtifact());
 		} else {
-			view.showMsg("The enemy was too strong!");
+			view.showMsg("\nThe " + enemyName + " was too strong!");
 			view.showMsg("You died - Game Over.");
 			view.gameDone();
 		}

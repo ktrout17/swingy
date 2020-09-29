@@ -126,7 +126,7 @@ public class Game {
 		if (hp < 0)
 			hp = -hp;
 
-		System.out.println("\nIt appears to be a " + enemy + "!");
+		// System.out.println("\nIt appears to be a " + enemy + "!\n");
 		return new Enemies(enemy, atk, def, hp, artifact);
 	}
 	
@@ -136,7 +136,7 @@ public class Game {
 		// System.out.println("Artifact is: " + artifactName);
 		Artifact artifact = null;
 		
-		if (rand == 1 || rand == 3 || rand == 5 || rand == 7) {
+		if (rand == 1 || rand == 3 || rand == 5 || rand == 7 || rand == 9) {
 			if(artifacts.get(0).contains(artifactName)) 
 				artifact = new Weapon(artifactName, randomIntFromInterval(1, (generateEnemy().getHp() + 1)));
 			else if (artifacts.get(1).contains(artifactName))

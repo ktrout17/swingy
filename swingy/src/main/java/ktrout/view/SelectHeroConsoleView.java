@@ -44,17 +44,21 @@ public class SelectHeroConsoleView implements SelectHeroView {
 				controller.onElementSelected(lastIndex);
 				System.out.println("SELECT - to select this hero.\n");
 				System.out.println("CREATE - to create a new hero.\n");
+				System.out.println("BACK - back to available heroes\n");
 				System.out.println("QUIT - exit the game.\n");
 			} else if ("select".equalsIgnoreCase(input) && lastIndex != -1) {
 				controller.onSelect(lastIndex);
 				break;
+			} else if ("back".equalsIgnoreCase(input)) {
+				getInput();
+				// break;
 			} else if("quit".equalsIgnoreCase(input)) {
 				controller.onQuit();
 				break;
 			} else {
 				System.out.println("Unknown Command.");
 				System.out.println("Available Commands:");
-				System.out.println("CREATE, NUMBER, SELECT, QUIT");
+				System.out.println("CREATE, NUMBER, SELECT, QUIT, BACK");
 				System.out.println("_______________________________________\n");
 			}
 		}
