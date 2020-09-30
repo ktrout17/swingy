@@ -5,9 +5,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import ktrout.model.characters.Enemies;
+import ktrout.model.Game;
 
 public abstract class Character {
 
+	private Game game;
+	
 	@NotNull(message = "Name cannot be null.")
 	@Size(min = 1, max = 12, message = "Name must be minimum 1 character and maxmimum 12 characters.")
 	protected String name;
@@ -32,7 +35,7 @@ public abstract class Character {
 	    int combatAtk = this.atk - enemy.def;
 		if (this.atk > enemy.def)
 			enemy.setHp(enemy.getHp() - combatAtk);
-		else if ((int)(Math.random() * 10) <= 2)
+		else if (game.randomIntFromInterval(0, 10) <= 2)
 		    enemy.setHp(enemy.getHp() - this.atk);
 	}
 

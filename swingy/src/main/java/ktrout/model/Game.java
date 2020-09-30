@@ -168,7 +168,7 @@ public class Game {
 		map[heroCoords.getY()][heroCoords.getX()] = false;
 	}
 
-	private int randomIntFromInterval(int min, int max) {
+	public int randomIntFromInterval(int min, int max) {
 		return (int)Math.floor(Math.random() * (max - min + 1) + min);
 	}
 	
