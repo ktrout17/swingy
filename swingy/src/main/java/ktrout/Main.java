@@ -59,8 +59,8 @@ public class Main {
     }
     
     public static void closeConnections() {
-		if (scanner != null)
-			scanner.close();
+		// if (scanner != null)
+		// 	scanner.close();
     	Database.close();
     }
     
