@@ -131,7 +131,7 @@ public class GameConsoleView implements GameView {
 		
 		System.out.println();
 		System.out.println("Would you like to replace your current " + replaceMsg + "?");
-		System.out.println("DROP - drop current artifact");
+		System.out.println("DROP - drop new artifact");
 		System.out.println("REPLACE - replace current artifact");
 		System.out.println("\nAvailable commands:");
 		System.out.println("DROP, REPLACE");

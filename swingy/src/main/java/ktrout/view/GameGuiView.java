@@ -150,7 +150,7 @@ public class GameGuiView extends JPanel implements GameView {
     
     @Override
     public boolean replaceArtifact(String replaceMsg) {
-    	Object options[] = {"Drop", "Replace"};
+    	Object options[] = {"Replace", "Drop"};
     	
     	int res = JOptionPane.showOptionDialog(Main.getFrame(), 
     			"Would you like to replace " + replaceMsg + "?", 
